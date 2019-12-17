@@ -9,7 +9,7 @@ DUCROUX Guillaume
 ```
 Member 2
 ```
-BARRASSET Raphaël
+CASTELAIN Julien
 ```
 Member 3
 ```
