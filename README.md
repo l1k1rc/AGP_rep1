@@ -9,15 +9,15 @@ DUCROUX Guillaume
 ```
 Member 2
 ```
-__name__
+CASTELAIN Julien
 ```
 Member 3
 ```
-__name__
+BARRASSET Raphaël
 ```
 Member 4
 ```
-__name__
+SAINT-AMAND Matthieu
 ```
 Member 5
 ```
