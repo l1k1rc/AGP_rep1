@@ -2,8 +2,7 @@
 ## This repository only concerns the project sources code.
 ### Written in Java
 
-A small project to start in python. The purpose is to obtain numerical and graphical statistics of a PoE switch on its unnecessary ports, i.e., connected 
-to devices that do not use PoE support.
+Description project
 CHEF
 ```
 DUCROUX Guillaume
