@@ -25,6 +25,6 @@ __name__
 ```
 Member 6
 ```
-__Abdelhamid Fatma__
+ABDELHAMID Fatma
 ```
 
