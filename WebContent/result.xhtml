@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Simulation result</title>
+</h:head>
+<h:body>
+	<fieldset>
+		<legend>
+			<strong>In memory simulation result</strong>
+		</legend>		
+	
+		Average client waiting time : #{resultBean.averageClientWaitingTime} <br /> 
+		Average client service time : #{resultBean.averageClientServiceTime} <br />
+		Cashier occupation rate : #{resultBean.cashierOccupationRate} % <br /> 
+		Client satisfaction rate : #{resultBean.clientSatisfactionRate} % <br />
+
+	</fieldset>
+	<fieldset>
+		<legend>
+			<strong>Persisted simulation result</strong>
+		</legend>		
+		Served client count : #{resultBean.servedClientCount} <br />
+		Non Served client count : #{resultBean.nonServedClientCount} <br /> 
+		
+		<p:chart type="pie" model="#{resultBean.pieModel1}" style="width:400px;height:300px" /> <br />
+
+	</fieldset>
+</h:body>
+</html>

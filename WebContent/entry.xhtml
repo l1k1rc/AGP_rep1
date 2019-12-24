@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Bank simulation</title>
+</h:head>
+<h:body>
+	<p>
+		<strong>Welcome to bank simulation !</strong>
+	</p>
+
+	<h2>Please enter values for simulation parameters</h2>
+	<fieldset>
+		<h:form>
+			Simulation duration : <h:inputText value="#{entryBean.simulationDuration}" /> <br />
+			Cashier count : <h:inputText value="#{entryBean.cashierCount}" /> <br />
+			Min service time : <h:inputText value="#{entryBean.minServiceTime}" /> <br />
+			Max service time : <h:inputText value="#{entryBean.maxServiceTime}" /> <br />
+			Client arrival interval : <h:inputText value="#{entryBean.clientArrivalInterval}" /> <br />
+			Priority client rate : <h:inputText value="#{entryBean.priorityClientRate}" /> <br />
+			Client patience time : <h:inputText value="#{entryBean.clientPatienceTime}" /> <br />    
+			 
+			<h:commandButton value="Start" action="#{entryBean.startSimulation}" />
+		</h:form>
+	</fieldset>
+</h:body>
+</html>
