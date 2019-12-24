@@ -1,7 +1,7 @@
 # Atelier de gestion de projet
 ## This repository only concerns the project sources code.
 
-Upload this file with [this tutorial.](https://agea.github.io/tutorial.md "Markdown Tutorial").
+Update this file with [this tutorial.](https://agea.github.io/tutorial.md "Markdown Tutorial").
 ### Written in Java
 
 >Description project there.
