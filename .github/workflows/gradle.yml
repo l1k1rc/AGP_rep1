@@ -15,6 +15,6 @@ jobs:
         java-version: 1.8
     - name: Running test on .java
       run: |
-       javac src/bean/*.java
+       javac src/beans/*.java
        echo "End"
       
