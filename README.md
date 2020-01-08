@@ -16,11 +16,11 @@ CASTELAIN Julien
 ```
 Member 3
 ```
-BARRASSET Raphaël
+SAINT-AMAND Matthieu
 ```
 Member 4
 ```
-SAINT-AMAND Matthieu
+BARRASSET Raphaël
 ```
 Member 5
 ```
