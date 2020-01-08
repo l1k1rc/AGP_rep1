@@ -24,7 +24,7 @@ SAINT-AMAND Matthieu
 ```
 Member 5
 ```
-BRAULT Sebastien
+BRAULT Sébastien
 ```
 Member 6
 ```
