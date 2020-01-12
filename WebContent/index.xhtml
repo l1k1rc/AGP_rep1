@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com"></meta>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="s01">
+      <h:form>
+        <fieldset>
+          <legend>Discover the Canary Islands</legend>
+        </fieldset>
+        <div class="inner-form">
+          <div class="input-field first-wrap">
+            <h:inputText id="search" a:placeholder="What are you looking for?" />
+          </div>
+          <div class="input-field second-wrap">
+            <h:inputText id="location" type="text" a:placeholder="location" />
+          </div>
+          <div class="input-field third-wrap">
+            <!-- <h:button class="btn-search" type="button">Search</h:button> -->
+            <h:commandButton value="Search" class="btn-search" action="#{loginBean.returnAction_second}" />
+          </div>
+        </div>
+      </h:form>
+    </div>
+  </body>
+</html>
+ 
