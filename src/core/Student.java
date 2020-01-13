@@ -23,15 +23,16 @@ public class Student {
         return number;
     }
     public String getCourse() {
-    	System.out.println(courses.get(0).getName());
+    	//System.out.println(courses.get(0).getName());
     	return courses.get(0).getName();
     }
-
+    
     public void setNumber(int number) {
         this.number = number;
     }
 
     public List<Course> getCourses() {
+    	System.out.println("salut");
         return courses;
     }
 

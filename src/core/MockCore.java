@@ -31,6 +31,11 @@ public class MockCore {
 
 	private static final List<Student> students = new ArrayList<Student>();
 	static {
+		Student chris = new Student();
+		chris.setName("Chris");
+		chris.setNumber(0000111);
+		chris.setCourses(coursesLuc);
+		students.add(chris);
 		Student jean = new Student();
 		jean.setName("Jean");
 		jean.setNumber(21111111);

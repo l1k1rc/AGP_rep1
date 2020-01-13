@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.SelectItem;
 
+import core.Course;
 import core.MockCore;
 import core.Student;
 
@@ -45,6 +46,12 @@ public class StudentBean {
 	public List<Student> getStudents(){
 		return students;
 	}
+	public List<Course> getCourses(){
+		
+		System.out.println(students.get(0).getCourse());
+		return students.get(0).getCourses();
+	}
+
 	public void setItems(List<SelectItem> items) {
 		this.items = items;
 	}
