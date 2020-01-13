@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+
+	<bean id="person" class="spring.Person" abstract="true">
+		<property name="ownName">
+			<value>Pascal</value>
+		</property>
+	</bean>
+
+	<bean id="address" class="spring.Address" abstract="true" />
+
+	<bean id="chinese" class="spring.Chinese" parent="person">
+		<property name="address" ref="chineseaddress" />
+	</bean>
+	<bean class="spring.Chinese" id="chinese2" parent="person" scope="prototype">
+		<property name="ownName">
+			<value>Tianxiao Liu</value>
+		</property>
+		<property name="address" ref="chineseaddress" />
+	</bean>
+
+	<bean id="french" class="spring.French" parent="person">
+		<property name="address" ref="frenchaddress" />
+	</bean>
+
+	<bean id="english" class="spring.English" parent="person">
+		<property name="address" ref="englishaddress" />
+	</bean>
+
+	<bean id="chineseaddress" class="spring.ChineseAddress" parent="address">
+		<property name="number">
+			<value>2</value>
+		</property>
+		<property name="street">
+			<value>Changan</value>
+		</property>
+		<property name="city">
+			<value>Beijing</value>
+		</property>
+		<property name="postalCode">
+			<value>100000</value>
+		</property>
+	</bean>
+
+	<bean id="frenchaddress" class="spring.FrenchAdress" parent="address">
+		<property name="number">
+			<value>1</value>
+		</property>
+		<property name="street">
+			<value>Pasteur</value>
+		</property>
+		<property name="city">
+			<value>Paris</value>
+		</property>
+		<property name="postalCode">
+			<value>75015</value>
+		</property>
+
+	</bean>
+	<bean id="englishaddress" class="spring.EnglishAddress" parent="address">
+		<property name="number">
+			<value>3</value>
+		</property>
+		<property name="street">
+			<value>Newton</value>
+		</property>
+		<property name="city">
+			<value>London</value>
+		</property>
+		<property name="postalCode">
+			<value>11598</value>
+		</property>
+	</bean>
+
+	<aop:config>
+		<aop:pointcut id="servicePointcut"
+			expression="execution(* spring.Person.sayHello(..))" />
+		<aop:aspect id="logginAspect" ref="personLogger">
+			<aop:before method="logMethodEntry" pointcut-ref="servicePointcut" />
+			<aop:around method="aroundAdvice" pointcut-ref="servicePointcut" />
+			<aop:after-returning method="logMethodExit"
+				returning="result" pointcut-ref="servicePointcut" />
+			<aop:after-throwing method="throwingAdvice"
+				throwing="ex" pointcut-ref="servicePointcut" />
+		</aop:aspect>
+	</aop:config>
+
+	<bean id="personLogger" class="spring.PersonLogger" />
+
+</beans>
