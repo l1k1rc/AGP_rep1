@@ -4,7 +4,11 @@ import java.io.Serializable;
 
 public class Car implements Serializable {
      
-    public String id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -5693382796832628295L;
+	public String id;
     public String brand;
     public int year;
     public String color;

@@ -5,14 +5,18 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.event.NamedEvent;
+import javax.annotation.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
-@NamedEvent
-@ApplicationScoped
-public class CarService {
+@ManagedBean
+@RequestScoped
+public class CarService{
      
-    private final static String[] colors;
+    /**
+	 * 
+	 */
+
+	private final static String[] colors;
      
     private final static String[] brands;
      
@@ -43,6 +47,7 @@ public class CarService {
     }
      
     public List<Car> createCars(int size) {
+    	System.out.println("createCars");
         List<Car> list = new ArrayList<Car>();
         for(int i = 0 ; i < size ; i++) {
             list.add(new Car(getRandomId(), getRandomBrand(), getRandomYear(), getRandomColor(), getRandomPrice(), getRandomSoldState()));

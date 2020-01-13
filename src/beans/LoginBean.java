@@ -7,11 +7,6 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class LoginBean {
 
-	/**
-	 * A session scoped bean must be serializable.
-	 */
-	private static final long serialVersionUID = 6955508471291131930L;
-
 	private String login;
 	private String password;
 	private boolean connected = false;
@@ -36,7 +31,7 @@ public class LoginBean {
 		return "index";
 	}
 	public LoginBean() {
-		password="test_2";
+		password="Password";
 		System.out.println("Test constructeur");
 	}
 

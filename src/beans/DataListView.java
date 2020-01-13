@@ -3,26 +3,35 @@ package beans;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ViewScoped;
-import javax.faces.event.NamedEvent;
 
-@NamedEvent
+@ManagedBean
 @ViewScoped
-public class DataListView implements Serializable {
+public class DataListView {
      
-    private List<Car> cars1;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 846125447272555230L;
+
+	private List<Car> cars1;
      
     private List<Car> cars2;
      
     private List<Car> cars3;
-     
     private Car selectedCar;
      
     private CarService service;
-     
-    @PostConstruct
+
+    public DataListView() {
+		System.out.println("datalist view constructeur");
+	}
+
+	@PostConstruct
     public void init() {
+    	System.out.println("init() -> Car");
         cars1 = service.createCars(10);
         cars2 = service.createCars(5);
         cars3 = service.createCars(50);
