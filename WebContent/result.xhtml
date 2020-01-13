@@ -3,42 +3,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:h="http://java.sun.com/jsf/html" 
 	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>JSF Demonstration</title>
 </h:head>
 <h:body>
-	<h2>What can you do on this Web site ?</h2>
-	<h:panelGroup>
-		<ul>
-			<li><a href="list.jsf">View all students</a></li>
-		</ul>
-	</h:panelGroup>
-	<fieldset>
-		<legend>Please log in for more functionalities</legend>		
-		<h:form>
-               Login : 
-                <h:inputText value="#{loginBean.password}" />
-			<br />
-                 Password: 
-                <h:inputSecret value="#{loginBean.password}" />
-			<br />
-			<h:commandButton value="Log in" action="#{dialogView.destroyWorld}" />
-		</h:form>
-	</fieldset>
-	<p>Hello</p>
-	<h:form>     
-	    <p:growl id="message" showDetail="true" />
-	     
-	    <p:commandButton value="Destroy the World" action="#{dialogView.destroyWorld}" update="message">
-	        <p:confirm header="Confirmation" message="Are you sure?" icon="pi pi-exclamation-triangle" />
-	    </p:commandButton>
-	     
-	    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-	        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
-	        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
-	    </p:confirmDialog>      
+	<p>
+		<strong>Scores of all students</strong>
+	</p>
+	<h:form><!--  Il faut mettre un formulaire pour récupérer les valeurs -->
+		<p:dataList value="#{studentBean.students}" var="student" type="ordered"> <!-- METTRE LA VAR !!! -->
+	        <f:facet name="header">
+	            #{student.name}
+	        </f:facet>
+	        Valeur du score du cours de #{student.name}, #{student.course}, #{student.name}
+	    </p:dataList>
 	</h:form>
-
 </h:body>
 </html>
