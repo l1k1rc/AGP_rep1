@@ -24,7 +24,7 @@ BARRASSET Raphaël
 ```
 Member 5
 ```
-BRAULT Seebastien
+BRAULT Sébastien
 ```
 Member 6
 ```
