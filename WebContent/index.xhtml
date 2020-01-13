@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="colorlib.com"></meta>
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
-    <link href="style.css" rel="stylesheet" />
+    <link href="template_1.css" rel="stylesheet" />
   </h:head>
   <h:body>
     <div class="s01">
@@ -19,15 +19,31 @@
         <fieldset>
           <legend>Discover the Canary Islands</legend>
         </fieldset>
-        <div class="inner-form">
+       	 <!-- Rechercher un mot clé -->
+       	 <div class="inner-form">
           <div class="input-field first-wrap">
             <h:inputText id="search" a:placeholder="What are you looking for?" />
           </div>
-          <div class="input-field second-wrap">
-            <h:inputText id="location" type="text" a:placeholder="location" />
-          </div>
+		  <div class="under-form">
+	          <!-- Choisir le type d'excursion -->
+	          <h:panelGrid columns="2">
+		        <p:selectOneMenu value="TODO">
+		            <f:selectItem itemLabel="Excursion historique" itemValue="historique" />
+		            <f:selectItem itemLabel="Excursion de loisirs" itemValue="loisirs" />
+		        </p:selectOneMenu>
+		      </h:panelGrid>
+		      <!-- Choix interval de prix -->
+			    <h:panelGrid columns="1">
+			        <h:outputText id="displayRange" value="Between #{sliderView.number8} and #{sliderView.number9}" style="color:white;"/>
+			        <p:slider for="txt6,txt7" display="displayRange" style="width: 500px" range="true" displayTemplate="Between {min}0$ and {max}0$" />
+			    </h:panelGrid>
+			    <h:inputHidden id="txt6" value="#{sliderView.number8}"/>
+			    <h:inputHidden id="txt7" value="#{sliderView.number9}"/>
+			  <!-- Rechercher pour une date -->
+	       	  <p:datePicker id="popup" value="#{calendarView.date2}" a:placeholder="Date de séjour"/>
+	      </div>
+	      <!-- Valide le filtrage pour passage à la page suivante -->
           <div class="input-field third-wrap">
-            <!-- <h:button class="btn-search" type="button">Search</h:button> -->
             <h:commandButton value="Search" class="btn-search" action="#{loginBean.returnAction_second}" />
           </div>
         </div>

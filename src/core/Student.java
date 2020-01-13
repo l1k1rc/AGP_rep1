@@ -32,7 +32,7 @@ public class Student {
     }
 
     public List<Course> getCourses() {
-    	System.out.println("salut");
+    	System.out.println(courses);
         return courses;
     }
 

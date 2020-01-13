@@ -1,6 +1,7 @@
 package beans;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,22 @@ public class StudentBean {
 	private List<Student> students = MockCore.getAllStudents();
 	private List<SelectItem> items = new ArrayList<SelectItem>();
 	private Map<String, Student> studentMap = new HashMap<String, Student>();
+	private List<String> randomData = Arrays.asList("10.78$", "76.98$", "544.50$");
 
+	
+	
+	private String passingValue;
+	
+	public String getPassingValue() {
+		return passingValue;
+	}
+	public void setPassingValue(String passingValue) {
+		this.passingValue = passingValue;
+	}
+	
+	
+	
+	
 	public StudentBean() {
 		currentStudentName = students.get(0).getName();
 		for (Student student : students) {
@@ -31,7 +47,10 @@ public class StudentBean {
 		}
 		System.out.println(students.size());
 	}
-
+	public List<String> getRandomData() {
+		System.out.println(randomData);
+		return randomData;
+	}
 	public String getCurrentStudentName() {
 		return currentStudentName;
 	}

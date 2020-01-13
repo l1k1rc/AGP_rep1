@@ -7,8 +7,6 @@
 }
 /*____________________________________________________________________________________________________________________________________________________*/
 
-
-
 /*____________________________________________________________________________________________________________________________________________________*/
 html {
   line-height: 1.15;
@@ -18,12 +16,6 @@ html {
   -webkit-text-size-adjust: 100%;
   /* 2 */
 }
-
-/* Sections
-   ========================================================================== */
-/**
- * Remove the margin in all browsers (opinionated).
- */
 body {
   margin: 0;
 }
@@ -40,39 +32,20 @@ section {
   display: block;
 }
 
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
-
-/* Grouping content
-   ========================================================================== */
-/**
- * Add the correct display in IE 9-.
- * 1. Add the correct display in IE.
- */
 figcaption,
 figure,
 main {
   /* 1 */
   display: block;
 }
-
-/**
- * Add the correct margin in IE 8.
- */
 figure {
   margin: 1em 40px;
 }
 
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
 hr {
   box-sizing: content-box;
   /* 1 */
@@ -82,10 +55,6 @@ hr {
   /* 2 */
 }
 
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
 pre {
   font-family: monospace, monospace;
   /* 1 */
@@ -119,26 +88,16 @@ abbr[title] {
   /* 2 */
 }
 
-/**
- * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
- */
 b,
 strong {
   font-weight: inherit;
 }
 
-/**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
 b,
 strong {
   font-weight: bolder;
 }
 
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
 code,
 kbd,
 samp {
@@ -148,16 +107,10 @@ samp {
   /* 2 */
 }
 
-/**
- * Add the correct font style in Android 4.3-.
- */
 dfn {
   font-style: italic;
 }
 
-/**
- * Add the correct background and color in IE 9-.
- */
 mark {
   background-color: #ff0;
   color: #000;
@@ -491,12 +444,23 @@ legend {
   color: #fff;
   margin-bottom: 60px;
 }
-
-.s01 form .inner-form {
+.under-form{
+	display:flex;
+	  padding: 50px 47px;
+  display: -ms-flexbox;
+  width: 100%;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+}
+/*  
+display: flex;
+*/
+.s01 form .inner-form{
   background: rgba(0, 0, 0, 0.5);
   padding: 50px 47px;
   display: -ms-flexbox;
-  display: flex;
   width: 100%;
   -ms-flex-pack: justify;
       justify-content: space-between;
@@ -567,7 +531,9 @@ legend {
   border: 0;
   cursor: pointer;
 }
-
+.btn-search{
+	margin-left:270%;
+}
 .s01 form .inner-form .input-field.third-wrap .btn-search:hover {
   background: #2d62d3;
 }
