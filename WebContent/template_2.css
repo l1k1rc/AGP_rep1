@@ -46,25 +46,25 @@ body {
   z-index: 2;
   border-radius: 10px;
 }
-.card .info_section .movie_header {
+.card .info_section .header_travel {
   position: relative;
   padding: 25px;
   height: 40%;
 }
-.card .info_section .movie_header h1 {
+.card .info_section .header_travel h1 {
   color: black;
   font-weight: 400;
 }
-.card .info_section .movie_header h4 {
+.card .info_section .header_travel h4 {
   color: #555;
   font-weight: 400;
 }
-.card .info_section .movie_header .type {
+.card .info_section .header_travel .type {
   display: inline-block;
   color: #959595;
   margin-left: 10px;
 }
-.card .info_section .movie_header .locandina {
+.card .info_section .header_travel .locandina {
   position: relative;
   float: left;
   margin-right: 20px;
@@ -88,7 +88,7 @@ body {
   border-radius: 11px;
 }
 
-.minutes {
+.price {
   font-size: 20px;
   width: 20%;
   height: 40%;
@@ -102,7 +102,7 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .movie_header {
+  .header_travel {
     width: 65%;
   }
 
@@ -132,7 +132,7 @@ body {
     background-position: 50% 50% !important;
   }
 
-  .movie_header {
+  .header_travel {
     width: 100%;
     margin-top: 85px;
   }
