@@ -2,8 +2,8 @@ package core;
 
 public class Historical extends Site {
 
-	public Historical(String name, String description, float price, String position) {
-		super(name, description, price, position);
+	public Historical(int id, String name, String description, float price, String type, Point position) {
+		super(id, name, description, price, type, position);
 		// TODO Auto-generated constructor stub
 	}
 

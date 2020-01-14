@@ -1,21 +1,42 @@
 package core;
 
 public class Hotel {
+	private int id;
 	private String name;
 	private String beach;
 	private boolean entertainment;
 	private int stars;
 	private float price_per_night;
-	private String position;
+	private Point position;
 	
-	public Hotel(String name, String beach, boolean entertainment, int stars, float price_per_night, String position) {
+	public Hotel(int id, String name, String beach, boolean entertainment, int stars, float price_per_night, Point position) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.beach = beach;
 		this.entertainment = entertainment;
 		this.stars = stars;
 		this.price_per_night = price_per_night;
 		this.position = position;
+	}
+	
+	public Hotel(int id, String name, String beach, boolean entertainment, int stars, float price_per_night, int x, int y) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.beach = beach;
+		this.entertainment = entertainment;
+		this.stars = stars;
+		this.price_per_night = price_per_night;
+		this.position = new Point(x,y);
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -58,11 +79,11 @@ public class Hotel {
 		this.price_per_night = price_per_night;
 	}
 
-	public String getPosition() {
+	public Point getPosition() {
 		return position;
 	}
 
-	public void setPosition(String position) {
+	public void setPosition(Point position) {
 		this.position = position;
 	}
 	
