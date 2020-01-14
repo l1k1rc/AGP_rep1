@@ -2,18 +2,20 @@ package core;
 
 public class Hotel {
 	private String name;
-	private String position;
 	private String beach;
-	private String animation;
+	private boolean entertainment;
 	private int stars;
+	private float price_per_night;
+	private String position;
 	
-	public Hotel(String name, String position, String beach, String animation, int stars) {
+	public Hotel(String name, String beach, boolean entertainment, int stars, float price_per_night, String position) {
 		super();
 		this.name = name;
-		this.position = position;
 		this.beach = beach;
-		this.animation = animation;
+		this.entertainment = entertainment;
 		this.stars = stars;
+		this.price_per_night = price_per_night;
+		this.position = position;
 	}
 
 	public String getName() {
@@ -24,14 +26,6 @@ public class Hotel {
 		this.name = name;
 	}
 
-	public String getPosition() {
-		return position;
-	}
-
-	public void setPosition(String position) {
-		this.position = position;
-	}
-
 	public String getBeach() {
 		return beach;
 	}
@@ -40,12 +34,12 @@ public class Hotel {
 		this.beach = beach;
 	}
 
-	public String getAnimation() {
-		return animation;
+	public boolean isEntertainment() {
+		return entertainment;
 	}
 
-	public void setAnimation(String animation) {
-		this.animation = animation;
+	public void setEntertainment(boolean entertainment) {
+		this.entertainment = entertainment;
 	}
 
 	public int getStars() {
@@ -55,7 +49,21 @@ public class Hotel {
 	public void setStars(int stars) {
 		this.stars = stars;
 	}
-	
-	
 
+	public float getPrice_per_night() {
+		return price_per_night;
+	}
+
+	public void setPrice_per_night(float price_per_night) {
+		this.price_per_night = price_per_night;
+	}
+
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
+	}
+	
 }

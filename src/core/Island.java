@@ -1,15 +1,21 @@
 package core;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Island {
 	private String name;
-	private HashMap<String,Hotel> hotels;
+	private ArrayList<Site> sites;
+	private ArrayList<Hotel> hotels;
 	
 	public Island(String name) {
+		this(name,null,null);
+	}
+	
+	public Island(String name, ArrayList<Site> sites, ArrayList<Hotel> hotels) {
 		super();
 		this.name = name;
-		this.hotels = new HashMap<String,Hotel>();
+		this.sites = sites;
+		this.hotels = hotels;
 	}
 
 	public String getName() {
@@ -20,13 +26,20 @@ public class Island {
 		this.name = name;
 	}
 
-	public HashMap<String, Hotel> getHotels() {
+	public ArrayList<Site> getSites() {
+		return sites;
+	}
+
+	public void setSites(ArrayList<Site> sites) {
+		this.sites = sites;
+	}
+
+	public ArrayList<Hotel> getHotels() {
 		return hotels;
 	}
 
-	public void setHotels(HashMap<String, Hotel> hotels) {
+	public void setHotels(ArrayList<Hotel> hotels) {
 		this.hotels = hotels;
 	}
-	
-	
+
 }

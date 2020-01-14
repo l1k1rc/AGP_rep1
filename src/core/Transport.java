@@ -1,21 +1,21 @@
 package core;
 
 public class Transport {
-	private String transport;
+	private String type;
 	private float kilometric_price;
 	
-	public Transport(String transport, float kilometric_price) {
+	public Transport(String type, float kilometric_price) {
 		super();
-		this.transport = transport;
+		this.type = type;
 		this.kilometric_price = kilometric_price;
 	}
 
-	public String getTransport() {
-		return transport;
+	public String getType() {
+		return type;
 	}
 
-	public void setTransport(String transport) {
-		this.transport = transport;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public float getKilometric_price() {
@@ -25,4 +25,5 @@ public class Transport {
 	public void setKilometric_price(float kilometric_price) {
 		this.kilometric_price = kilometric_price;
 	}
+	
 }
