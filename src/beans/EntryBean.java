@@ -1,5 +1,6 @@
 package beans;
 
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -13,7 +14,7 @@ import business.spring.SpringIoC;
  * The proxy design pattern is used for avoiding redundant code copy.
  */
 @ManagedBean
-@SessionScoped
+@ApplicationScoped
 public class EntryBean {
 
 	/**
@@ -22,7 +23,7 @@ public class EntryBean {
 	private String keyword;
 	private String excursion;
 	private String price;
-	private String date;
+	private String typeStay;
 	private String price1;
 	private String price2;
 
@@ -75,14 +76,14 @@ public class EntryBean {
 		this.price = price;
 	}
 
-	public String getDate() {
-		System.out.println("get date value : "+date);
-		return date;
+	public String gettypeStay() {
+		System.out.println("get typeStay value : "+typeStay);
+		return typeStay;
 	}
 
-	public void setDate(String date) {
-		System.out.println("set date value : "+date);
-		this.date = date;
+	public void settypeStay(String typeStay) {
+		System.out.println("set typeStay value : "+typeStay);
+		this.typeStay = typeStay;
 	}
 	/********************************/
 

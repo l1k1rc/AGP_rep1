@@ -10,26 +10,39 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
+
+import beans.EntryBean;
 public class LuceneTester {
 	
-   static String indexDir = "index";
-   String dataDir = "AGP";
+   // Passer par le web content !!!
+   static String indexDir = "/home/l1k1/Bureau/index";
+   String dataDir = "/home/l1k1/Bureau/AGP";
    Indexer indexer;
    Searcher searcher;
    public static void main(String[] args) {
+	      searchResult("hello");
+	   }
+   //Add jar lucene to WEB-CONTENT/WEB-INF/lib
+   public static void searchResult(String keywords) {
+	  System.out.println("Searching..."+keywords);
       LuceneTester tester;
       try {
          tester = new LuceneTester();
+         System.out.println("TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"+keywords);
          Directory index = FSDirectory.open (Paths.get(indexDir));
          if (!DirectoryReader.indexExists(index)) {
         	 tester.createIndex(); 
          }
-         tester.search("Fuerteventura Tenerife");
+         System.out.println("TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"+keywords);
+         tester.search("fuerteventura"); // GET KEYWORD HERE
       } catch (IOException e) {
          e.printStackTrace();
       } catch (ParseException e) {
          e.printStackTrace();
       }
+   }
+   public static void testlucene(String keyword) {
+	   System.out.println(keyword);
    }
    private void createIndex() throws IOException {
       indexer = new Indexer(indexDir);

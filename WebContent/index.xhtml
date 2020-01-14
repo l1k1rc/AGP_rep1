@@ -30,6 +30,7 @@
 		        <p:selectOneMenu value="#{entryBean.excursion}">
 		            <f:selectItem itemLabel="Excursion historique" itemValue="historique" />
 		            <f:selectItem itemLabel="Excursion de loisirs" itemValue="loisirs" />
+		            <f:selectItem itemLabel="Les deux" itemValue="deux" />
 		        </p:selectOneMenu>
 		      </h:panelGrid>
 		      <!-- Choix interval de prix -->
@@ -40,11 +41,16 @@
 			    <h:inputHidden id="txt6" value="#{entryBean.price1}"/>
 			    <h:inputHidden id="txt7" value="#{entryBean.price2}"/>
 			  <!-- Rechercher pour une date -->
-	       	  <p:datePicker id="popup" value="#{entryBean.date}" a:placeholder="Date de séjour"/>
+	       	  <h:panelGrid columns="2">
+		        <p:selectOneMenu value="#{entryBean.typeStay}">
+		            <f:selectItem itemLabel="Séjour sportif" itemValue="sportif" />
+		            <f:selectItem itemLabel="Séjour confortable" itemValue="confortable" />
+		        </p:selectOneMenu>
+		      </h:panelGrid>
 	      </div>
 	      <!-- Valide le filtrage pour passage à la page suivante -->
           <div class="input-field third-wrap">
-            <h:commandButton value="Search" class="btn-search" action="#{loginBean.returnAction_second}" />
+            <h:commandButton value="Search" class="btn-search" action="#{sendValueBean.direct}" />
           </div>
         </div>
       </h:form>

@@ -3,19 +3,27 @@ package core;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.bean.ManagedProperty;
+
+import beans.EntryBean;
+import lucene.LuceneTester;
+
 public class Student {
     private String name;
     private int number;
     private List<Course> courses = new ArrayList<Course>();
 
-    public Student() {
+	public Student() {
     }
-
+    public static void displayTest(String test) {
+    	System.out.println(test);
+    }
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
+    	LuceneTester luceneTester = new LuceneTester();
         this.name = name;
     }
 
@@ -35,7 +43,7 @@ public class Student {
     	System.out.println(courses);
         return courses;
     }
-
+    
     public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
