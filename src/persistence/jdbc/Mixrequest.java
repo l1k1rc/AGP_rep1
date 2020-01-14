@@ -11,14 +11,16 @@ public class Mixrequest {
 	
 	public Mixrequest() {
 	}
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		Mixrequest mixrequest = new Mixrequest();
 		mixrequest.getIndexFileNumberForMixRequest();
-	}*/
+	}
+
 	/**
 	 * Retrieve the index of usefull file depend of the request sent.
 	 */
 	public void getIndexFileNumberForMixRequest() {
+		ArrayList<String> finalIndex = new ArrayList<String>();
 		ArrayList<Site> resultSQLrequest = new ArrayList<Site>();
 		Mixrequest mixrequest = new Mixrequest("SELECT name, id FROM site with sculpture fuerteventura;");
 		String[] s = mixrequest.getSeparatedValue();
@@ -26,7 +28,7 @@ public class Mixrequest {
 		//For SQL request
 		resultSQLrequest=SitePersistence.request(s[0]);
 		for(int i=0;i<resultSQLrequest.size();i++)
-			System.out.println(resultSQLrequest.get(i).getName());
+			System.out.println(resultSQLrequest.get(i).getId());
 		//For Lucene part
 		System.out.println(s[0] + " :::: " + s[1]);
 		
@@ -34,6 +36,11 @@ public class Mixrequest {
 		System.out.println(LuceneTester.getIndexFile());
 		fileKeyIndex = mixrequest.getIndexNumberOf(LuceneTester.getIndexFile());
 		System.out.println(fileKeyIndex);
+		for(int i=0;i<fileKeyIndex.size();i++) {
+			for(int j=0;j<resultSQLrequest.size();j++) {
+				
+			}
+		}
 	}
 
 	/**
