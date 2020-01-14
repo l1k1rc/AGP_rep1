@@ -9,11 +9,7 @@ import core.Point;
 
 
 public class HotelPersistence {
-	/**
-	 * 
-	 * @param id
-	 * @return hotel object
-	 */
+	
 	public static ArrayList<Hotel> operatorSQL(String query) {
 		ArrayList<Hotel> hotelList = new ArrayList<Hotel>();
 		try {
