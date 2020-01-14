@@ -19,7 +19,72 @@ public class EntryBean {
 	/**
 	 * Proxy encapsulated object. All get/set of parameters work on this proxy object.
 	 */
+	private String keyword;
+	private String excursion;
+	private String price;
+	private String date;
+	private String price1;
+	private String price2;
+
 	private SimulationEntry entry = new SimulationEntry();
+	/********************************/
+
+	public String getKeyword() {
+		System.out.println("get the keyword value : "+keyword);
+		return keyword;
+	}
+
+	public String getPrice1() {
+		return price1;
+	}
+
+	public void setPrice1(String price1) {
+		System.out.println("Prix 1 : "+price1);
+		this.price1 = price1;
+	}
+
+	public String getPrice2() {
+		return price2;
+	}
+
+	public void setPrice2(String price2) {
+		System.out.println("Prix 2 :"+price2);
+		this.price2 = price2;
+	}
+
+	public void setKeyword(String keyword) {
+		System.out.println("set the keyword value : "+keyword);
+		this.keyword = keyword;
+	}
+
+	public String getExcursion() {
+		System.out.println("get the excursion value : "+excursion);
+		return excursion;
+	}
+
+	public void setExcursion(String excursion) {
+		System.out.println("set the excursion value : "+excursion);
+		this.excursion = excursion;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	public String getDate() {
+		System.out.println("get date value : "+date);
+		return date;
+	}
+
+	public void setDate(String date) {
+		System.out.println("set date value : "+date);
+		this.date = date;
+	}
+	/********************************/
 
 	private Simulation simulation = (Simulation) SpringIoC.getBean("simulation");;
 

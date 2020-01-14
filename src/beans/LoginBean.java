@@ -28,6 +28,7 @@ public class LoginBean {
 	}*/
 	public String returnAction_second() {
 		System.out.println("Redirection");
+		
 		return "index";
 	}
 	public LoginBean() {
