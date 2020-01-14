@@ -2,9 +2,11 @@ package core;
 
 public class Activity extends Site{
 
-	public Activity(String description, float price, String position, String type, String name, String access_type) {
-		super(description, price, position, type, name, access_type);
+	public Activity(String name, String description, float price, String position) {
+		super(name, description, price, position);
 		// TODO Auto-generated constructor stub
 	}
+
+	
 
 }

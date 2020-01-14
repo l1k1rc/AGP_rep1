@@ -1,21 +1,25 @@
 package core;
 
 public class Site {
+	private String name;
 	private String description;
 	private float price;
 	private String position;
-	private String type;
-	private String name;
-	private String access_type;
 	
-	public Site(String description, float price, String position, String type, String name, String access_type) {
+	public Site(String name, String description, float price, String position) {
 		super();
+		this.name = name;
 		this.description = description;
 		this.price = price;
 		this.position = position;
-		this.type = type;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
 		this.name = name;
-		this.access_type = access_type;
 	}
 
 	public String getDescription() {
@@ -40,31 +44,5 @@ public class Site {
 
 	public void setPosition(String position) {
 		this.position = position;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getAccess_type() {
-		return access_type;
-	}
-
-	public void setAccess_type(String access_type) {
-		this.access_type = access_type;
-	}
-	
-	
+	}	
 }
