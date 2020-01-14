@@ -10,8 +10,9 @@ import core.Site;
 
 public class SitePersistence {
 
-		private static Site readSiteById(int id) {
-			Site readSite = new Site();
+		private static Site searchSiteById(int id) {
+			Point p = new Point();
+			Site searchSite = new Site();
 			try {
 				String selectSiteQuery = "SELECT * FROM site AS a WHERE a.id = ? ";
 				Connection dbConnection = JdbcConnection.getConnection();
@@ -20,16 +21,15 @@ public class SitePersistence {
 				ResultSet result = preparedStatement.executeQuery();
 
 				while (result.next()) {
-					readSite.setId(result.getInt("id"));
-					readSite.setPrice(result.getFloat("price"));
-					
-					//modifier position partout
-					readSite.getPosition().setX(result.getInt("position"));
-					readSite.getPosition().setY(result.getInt("position"));
-					
-					
-					readSite.setType(result.getString("type"));
-					readSite.setName(result.getString("name"));
+					searchSite.setId(result.getInt("id"));
+					searchSite.setName(result.getString("name"));
+					searchSite.setPrice(result.getFloat("price"));
+					searchSite.setType(result.getString("hist_act"));
+
+					p.setX(result.getInt("position_x"));
+					p.setY(result.getInt("position_y"));
+					searchSite.setPosition(p);
+										
 				}
 
 				preparedStatement.close();
@@ -37,12 +37,12 @@ public class SitePersistence {
 			} catch (SQLException se) {
 				System.err.println(se.getMessage());
 			}
-			return readSite;
+			return searchSite;
 		}
 		
 		
-		private static Site readSiteByName(String name) {
-			Site readSite = new Site();
+		private static ArrayList<Site> searchSiteByName(String name) {
+			ArrayList<Site> dataSite = new ArrayList<Site>();
 			try {
 				String selectSiteQuery = "SELECT * FROM site AS a WHERE a.name = ? ";
 				Connection dbConnection = JdbcConnection.getConnection();
@@ -51,12 +51,18 @@ public class SitePersistence {
 				ResultSet result = preparedStatement.executeQuery();
 
 				while (result.next()) {
-					readSite.setId(result.getInt("id"));
-					readSite.setPrice(result.getFloat("price"));
-					readSite.getPosition().setX(result.getInt("position"));
-					readSite.getPosition().setY(result.getInt("position"));
-					readSite.setType(result.getString("type"));
-					readSite.setName(result.getString("name"));
+					Site searchSite = new Site();
+					Point p = new Point();
+
+					searchSite.setId(result.getInt("id"));
+					searchSite.setName(result.getString("name"));
+					searchSite.setPrice(result.getFloat("price"));
+					searchSite.setType(result.getString("hist_act"));
+					p.setX(result.getInt("position_x"));
+					p.setY(result.getInt("position_y"));
+					searchSite.setPosition(p);
+					dataSite.add(searchSite);
+
 				}
 
 				preparedStatement.close();
@@ -64,16 +70,20 @@ public class SitePersistence {
 			} catch (SQLException se) {
 				System.err.println(se.getMessage());
 			}
-			return readSite;
+			return dataSite;
 		}
 		public static void main(String[] args) {
 			ArrayList<Site> resultSQLrequest = new ArrayList<Site>();
-			resultSQLrequest = readSiteByType("0");
+			Site resSQLrequest = new Site();
+			resultSQLrequest = searchSiteByType("1");
+			resSQLrequest = searchSiteById(8);
+			//System.out.println(resSQLrequest.getPrice());
 			for(int i=0;i<resultSQLrequest.size();i++)
-				System.out.println(resultSQLrequest.get(i).getPrice());
+				//System.out.println(resultSQLrequest.get(i).getPosition());
+				System.out.println(resultSQLrequest.get(i).getId());
 		}
 		
-		private static ArrayList<Site> readSiteByType(String type) {
+		private static ArrayList<Site> searchSiteByType(String type) {
 			ArrayList<Site> dataSite = new ArrayList<Site>();
 			try {
 				String selectSiteQuery = "SELECT * FROM site AS a WHERE a.hist_act = ? ";
@@ -83,18 +93,18 @@ public class SitePersistence {
 				ResultSet result = preparedStatement.executeQuery();
 
 				while (result.next()) {
-					Site readSite = new Site();
+					Site searchSite = new Site();
 					Point p = new Point();
-					readSite.setId(result.getInt("id"));
-					readSite.setName(result.getString("name"));
-					readSite.setPrice(result.getFloat("price"));
-					readSite.setType(result.getString("hist_act"));
+					searchSite.setId(result.getInt("id"));
+					searchSite.setName(result.getString("name"));
+					searchSite.setPrice(result.getFloat("price"));
+					searchSite.setType(result.getString("hist_act"));
 					p.setX(result.getInt("position_x"));
 					p.setY(result.getInt("position_y"));
-					readSite.setPosition(p);
+					searchSite.setPosition(p);
 
 					
-					dataSite.add(readSite);
+					dataSite.add(searchSite);
 				}
 
 				preparedStatement.close();
@@ -106,7 +116,7 @@ public class SitePersistence {
 		}
 		
 		
-		public static ArrayList<Site> request(String query) {
+		public static ArrayList<Site> querySQL(String query) {
 			ArrayList<Site> siteList = new ArrayList<Site>();
 			try {
 				Connection dbConnection = JdbcConnection.getConnection();
@@ -115,12 +125,15 @@ public class SitePersistence {
 				
 				while (result.next()) {
 					Site searchSite = new Site();
+					Point p = new Point();
+
 					searchSite.setId(result.getInt("id"));
 					searchSite.setName(result.getString("name"));
 					searchSite.setPrice(result.getFloat("price"));
-					/*searchSite.getPosition().setX(result.getInt("position"));
-					searchSite.getPosition().setY(result.getInt("position"));
-					searchSite.setType(result.getString("type"));*/
+					searchSite.setType(result.getString("hist_act"));
+					p.setX(result.getInt("position_x"));
+					p.setY(result.getInt("position_y"));
+					searchSite.setPosition(p);
 					siteList.add(searchSite);
 				}
 
