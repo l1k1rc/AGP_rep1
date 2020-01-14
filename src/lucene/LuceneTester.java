@@ -2,6 +2,7 @@ package lucene;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
@@ -19,6 +20,7 @@ public class LuceneTester {
    String dataDir = "/home/l1k1/Bureau/AGP";
    Indexer indexer;
    Searcher searcher;
+   private static ArrayList<String> indexFile = new ArrayList<String>();
    public static void main(String[] args) {
 	      searchResult("hello");
 	   }
@@ -65,7 +67,12 @@ public class LuceneTester {
       for(ScoreDoc scoreDoc : hits.scoreDocs) {
          Document doc = searcher.getDocument(scoreDoc);
             System.out.println("File: "
-            + doc.get(LuceneConstants.FILE_PATH));
+            + doc.get(LuceneConstants.FILE_PATH)); // get this value to send to mixrequest class
+            indexFile.add(doc.get(LuceneConstants.FILE_PATH));
       }  
    }
+	public static ArrayList<String> getIndexFile() {
+		return indexFile;
+	}
+   
 }
