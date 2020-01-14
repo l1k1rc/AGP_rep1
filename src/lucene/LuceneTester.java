@@ -12,8 +12,8 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 public class LuceneTester {
 	
-   static String indexDir = "../../index";
-   String dataDir = "../../agp";
+   static String indexDir = "index";
+   String dataDir = "AGP";
    Indexer indexer;
    Searcher searcher;
    public static void main(String[] args) {
