@@ -1,18 +1,9 @@
 package business.spring;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-
-import org.aspectj.lang.JoinPoint;
-
-import business.client.AbstractClient;
-
-
 public class AOPReporter {
 	private static final String REPORT_FILE = "src/bank3/spring/container/ProblemReport.txt";
 
-	public void nonServedClientEntry(JoinPoint joinPoint) {
+/*	public void nonServedClientEntry(JoinPoint joinPoint) {
 
 		Object[] args = joinPoint.getArgs();
 		AbstractClient client = (AbstractClient) args[0];
@@ -33,6 +24,6 @@ public class AOPReporter {
 			System.err.println(e.getMessage());
 		}
 
-	}
+	}*/
 
 }

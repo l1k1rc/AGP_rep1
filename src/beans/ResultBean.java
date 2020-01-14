@@ -7,9 +7,6 @@ import javax.faces.bean.RequestScoped;
 
 import org.primefaces.model.chart.PieChartModel;
 
-import business.simulation.Simulation;
-import dao.StatisticPersistence;
-
 /**
  * 
  * Proxy design pattern is used for getting simulation results.
@@ -30,14 +27,7 @@ public class ResultBean {
 
 	@PostConstruct
 	private void createPieModel1() {
-		pieModel1 = new PieChartModel();
 
-		pieModel1.set("Served Clients", getServedClientCount());
-		pieModel1.set("Non-Served Clients", getNonServedClientCount());
-
-		pieModel1.setTitle("Client service rate");
-		pieModel1.setLegendPosition("w");
-		pieModel1.setShadow(false);
 	}
 
 	public PieChartModel getPieModel1() {
@@ -56,7 +46,7 @@ public class ResultBean {
 		this.entryBean = entryBean;
 	}
 
-	public int getServedClientCount() {
+	/*public int getServedClientCount() {
 		Simulation simulation = entryBean.getSimulation();
 		int idEntry = simulation.getIdEntry();
 		StatisticPersistence statisticPersistence = simulation.getStatisticPersistence();
@@ -88,5 +78,5 @@ public class ResultBean {
 	public double getClientSatisfactionRate() {
 		Simulation simulation = entryBean.getSimulation();
 		return simulation.getStatisticManager().calculateClientSatisfactionRate();
-	}
+	}*/
 }

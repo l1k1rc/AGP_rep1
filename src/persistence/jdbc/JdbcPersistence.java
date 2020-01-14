@@ -3,11 +3,7 @@ package persistence.jdbc;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
-import business.client.AbstractClient;
-import business.client.SimulationEntry;
-import business.simulation.StatisticManager;
 import dao.StatisticPersistence;
 
 public class JdbcPersistence implements StatisticPersistence {
@@ -17,7 +13,7 @@ public class JdbcPersistence implements StatisticPersistence {
 		System.err.println("Please don't forget to create tables manually by importing creation.sql in your database !");
 	}
 
-	@Override
+	/*@Override
 	public int persist(SimulationEntry simulationEntry, StatisticManager statisticManager) {
 		int idEntry = persistEntry(simulationEntry);
 		if (idEntry != 0) {
@@ -95,7 +91,7 @@ public class JdbcPersistence implements StatisticPersistence {
 			System.err.println(se.getMessage());
 		}
 		return idEntry;
-	}
+	}*/
 
 	@Override
 	public int servedClientCount(int simulationEntryId) {

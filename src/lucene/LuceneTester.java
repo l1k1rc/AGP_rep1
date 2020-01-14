@@ -14,7 +14,7 @@ import org.apache.lucene.store.FSDirectory;
 import beans.EntryBean;
 public class LuceneTester {
 	
-   // Passer par le web content !!!
+   // Passer par le web content !!! A CORRIGER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    static String indexDir = "/home/l1k1/Bureau/index";
    String dataDir = "/home/l1k1/Bureau/AGP";
    Indexer indexer;
@@ -24,17 +24,17 @@ public class LuceneTester {
 	   }
    //Add jar lucene to WEB-CONTENT/WEB-INF/lib
    public static void searchResult(String keywords) {
-	  System.out.println("Searching..."+keywords);
+	  System.err.println("Searching..."+keywords);
       LuceneTester tester;
       try {
          tester = new LuceneTester();
-         System.out.println("TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"+keywords);
+         System.out.println("Instanciation..."+keywords);
          Directory index = FSDirectory.open (Paths.get(indexDir));
          if (!DirectoryReader.indexExists(index)) {
         	 tester.createIndex(); 
          }
-         System.out.println("TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"+keywords);
-         tester.search("fuerteventura"); // GET KEYWORD HERE
+         System.out.println("Indexation..."+keywords);
+         tester.search(keywords); // GET KEYWORD HERE
       } catch (IOException e) {
          e.printStackTrace();
       } catch (ParseException e) {
