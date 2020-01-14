@@ -8,6 +8,7 @@ public class Site {
 	private String type;
 	private Point position;
 	
+	public Site() {}
 	public Site(int id, String name, String description, float price, String type, Point position) {
 		super();
 		this.id = id;
