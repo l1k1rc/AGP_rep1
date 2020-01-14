@@ -72,6 +72,8 @@ public class SitePersistence {
 			}
 			return dataSite;
 		}
+		
+		/********************************************************************************/
 		public static void main(String[] args) {
 			ArrayList<Site> resultSQLrequest = new ArrayList<Site>();
 			Site resSQLrequest = new Site();
@@ -82,7 +84,7 @@ public class SitePersistence {
 				//System.out.println(resultSQLrequest.get(i).getPosition());
 				System.out.println(resultSQLrequest.get(i).getId());
 		}
-		
+		/********************************************************************************/
 		private static ArrayList<Site> searchSiteByType(String type) {
 			ArrayList<Site> dataSite = new ArrayList<Site>();
 			try {

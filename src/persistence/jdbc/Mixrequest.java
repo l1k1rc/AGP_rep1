@@ -17,16 +17,19 @@ public class Mixrequest {
 	}
 
 	/**
-	 * Retrieve the index of usefull file depend of the request sent.
+	 * This method allows the results of the two previously separate queries 
+	 * to be grouped together in order to match the keys of the articles in 
+	 * the database with the keys of the text files.
+	 * @see SitePersistence
 	 */
 	public void getIndexFileNumberForMixRequest() {
 		ArrayList<String> finalIndex = new ArrayList<String>();
 		ArrayList<Site> resultSQLrequest = new ArrayList<Site>();
-		Mixrequest mixrequest = new Mixrequest("SELECT name, id FROM site with sculpture fuerteventura;");
+		Mixrequest mixrequest = new Mixrequest("SELECT * FROM site WHERE price=50 with plongée;");
 		String[] s = mixrequest.getSeparatedValue();
 		
 		//For SQL request
-		resultSQLrequest=SitePersistence.request(s[0]);
+		resultSQLrequest=SitePersistence.querySQL(s[0]);
 		for(int i=0;i<resultSQLrequest.size();i++)
 			System.out.println(resultSQLrequest.get(i).getId());
 		//For Lucene part
@@ -38,9 +41,14 @@ public class Mixrequest {
 		System.out.println(fileKeyIndex);
 		for(int i=0;i<fileKeyIndex.size();i++) {
 			for(int j=0;j<resultSQLrequest.size();j++) {
-				
+				if(fileKeyIndex.get(i).equals(Integer.toString(resultSQLrequest.get(j).getId()))) {
+					finalIndex.add(String.valueOf(resultSQLrequest.get(j).getId()));
+				}
 			}
 		}
+		
+		// Contains the fusion between SQL request AND the textual request.
+		System.err.println("Final obtenue avec mix : "+finalIndex);
 	}
 
 	/**
