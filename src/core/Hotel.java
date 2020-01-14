@@ -31,6 +31,10 @@ public class Hotel {
 		this.position = new Point(x,y);
 	}
 
+	public Hotel() {
+		
+	}
+
 	public int getId() {
 		return id;
 	}
