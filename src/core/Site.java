@@ -74,5 +74,6 @@ public class Site {
 
 	public void setPosition(Point position) {
 		this.position = position;
-	}	
+	}
+
 }

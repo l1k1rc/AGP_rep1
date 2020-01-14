@@ -2,22 +2,34 @@ package persistence.jdbc;
 
 import java.util.ArrayList;
 
+import core.Site;
 import lucene.LuceneTester;
 
 public class Mixrequest {
 	private String request;
 	private ArrayList<String> fileKeyIndex = new ArrayList<String>();
-
+	
 	public Mixrequest() {
 	}
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Mixrequest mixrequest = new Mixrequest();
 		mixrequest.getIndexFileNumberForMixRequest();
-	}
+	}*/
+	/**
+	 * Retrieve the index of usefull file depend of the request sent.
+	 */
 	public void getIndexFileNumberForMixRequest() {
-		Mixrequest mixrequest = new Mixrequest("SELECT nom, clé FROM T with sculpture fuerteventura;");
+		ArrayList<Site> resultSQLrequest = new ArrayList<Site>();
+		Mixrequest mixrequest = new Mixrequest("SELECT name, id FROM site with sculpture fuerteventura;");
 		String[] s = mixrequest.getSeparatedValue();
+		
+		//For SQL request
+		resultSQLrequest=SitePersistence.request(s[0]);
+		for(int i=0;i<resultSQLrequest.size();i++)
+			System.out.println(resultSQLrequest.get(i).getName());
+		//For Lucene part
 		System.out.println(s[0] + " :::: " + s[1]);
+		
 		LuceneTester.searchResult(s[1]);
 		System.out.println(LuceneTester.getIndexFile());
 		fileKeyIndex = mixrequest.getIndexNumberOf(LuceneTester.getIndexFile());
@@ -64,3 +76,20 @@ public class Mixrequest {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
