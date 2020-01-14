@@ -14,7 +14,34 @@ public class HotelPersistence {
 	 * @param id
 	 * @return hotel object
 	 */
-	
+	public static ArrayList<Hotel> operatorSQL(String query) {
+		ArrayList<Hotel> hotelList = new ArrayList<Hotel>();
+		try {
+			Connection dbConnection = JdbcConnection.getConnection();
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+			ResultSet result = preparedStatement.executeQuery();
+
+			while (result.next()) {
+				Hotel hotel = new Hotel();
+				Point p = new Point();
+				hotel.setId(result.getInt("id"));
+				hotel.setName(result.getString("name"));
+				hotel.setPrice_per_night(result.getFloat("price"));
+				hotel.setBeach(result.getString("beach"));
+				hotel.setEntertainment(result.getBoolean("entertainment"));
+				hotel.setStars(result.getInt("quality"));
+				p.setX(result.getInt("position_x"));
+				p.setY(result.getInt("position_y"));
+				hotel.setPosition(p);
+				hotelList.add(hotel);
+			}
+			preparedStatement.close();
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+		return hotelList;
+	}
 	private static Hotel searchHotelById(int id) {
 		Hotel hotel = new Hotel();
 		try {
