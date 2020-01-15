@@ -15,11 +15,10 @@ public class MixOperator implements APIDatabase {
 		ArrayList<String> result = new ArrayList<String>();
 		Mixrequest mixrequest = new Mixrequest();
 		String str = request;
-		if(!StringUtils.substringBetween(str, "SELECT", "FROM").contains("*"))
+		if (!StringUtils.substringBetween(str, "SELECT", "FROM").contains("*"))
 			System.err.println("Error : only [SELECT * FROM] allowed ");
 		else
 			result = mixrequest.getIndexFileNumberForMixRequest(request);
-
 
 		return result;
 	}
