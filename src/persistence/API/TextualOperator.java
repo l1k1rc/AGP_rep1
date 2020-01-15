@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import lucene.LuceneTester;
 
-public class TextualOperator implements APIDatabase {
+public class TextualOperator implements FacadeAPI {
 
 	public ArrayList<String> indexFile = new ArrayList<String>();
 
