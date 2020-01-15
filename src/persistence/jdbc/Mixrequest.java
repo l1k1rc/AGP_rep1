@@ -4,51 +4,57 @@ import java.util.ArrayList;
 
 import core.Site;
 import lucene.LuceneTester;
-
+import persistence.API.APIDatabase;
+import persistence.API.MixOperator;
+/**
+ * This class allow to merge data from SQL query and textual query.
+ * @see APIDatabase
+ * @see MixOperator
+ *
+ */
 public class Mixrequest {
 	private String request;
 	private ArrayList<String> fileKeyIndex = new ArrayList<String>();
-	
+
 	public Mixrequest() {
-	}
-	public static void main(String[] args) {
-		Mixrequest mixrequest = new Mixrequest();
-		mixrequest.getIndexFileNumberForMixRequest();
 	}
 
 	/**
-	 * This method allows the results of the two previously separate queries 
-	 * to be grouped together in order to match the keys of the articles in 
-	 * the database with the keys of the text files.
+	 * This method allows the results of the two previously separate queries to be
+	 * grouped together in order to match the keys of the articles in the database
+	 * with the keys of the text files.
+	 * 
+	 * @return the result of the mix query.
 	 * @see SitePersistence
 	 */
-	public void getIndexFileNumberForMixRequest() {
+	public ArrayList<String> getIndexFileNumberForMixRequest() {
 		ArrayList<String> finalIndex = new ArrayList<String>();
 		ArrayList<Site> resultSQLrequest = new ArrayList<Site>();
 		Mixrequest mixrequest = new Mixrequest("SELECT * FROM site WHERE price=50 with plongée;");
 		String[] s = mixrequest.getSeparatedValue();
-		
-		//For SQL request
-		resultSQLrequest=SitePersistence.querySQL(s[0]);
-		for(int i=0;i<resultSQLrequest.size();i++)
+
+		// For SQL request
+		resultSQLrequest = SitePersistence.querySQL(s[0]);
+		for (int i = 0; i < resultSQLrequest.size(); i++)
 			System.out.println(resultSQLrequest.get(i).getId());
-		//For Lucene part
-		System.out.println(s[0] + " :::: " + s[1]);
-		
+		// For Lucene part
+		// System.out.println(s[0] + " :::: " + s[1]);
+
 		LuceneTester.searchResult(s[1]);
-		System.out.println(LuceneTester.getIndexFile());
+		// System.out.println(LuceneTester.getIndexFile());
 		fileKeyIndex = mixrequest.getIndexNumberOf(LuceneTester.getIndexFile());
-		System.out.println(fileKeyIndex);
-		for(int i=0;i<fileKeyIndex.size();i++) {
-			for(int j=0;j<resultSQLrequest.size();j++) {
-				if(fileKeyIndex.get(i).equals(Integer.toString(resultSQLrequest.get(j).getId()))) {
+		// System.out.println(fileKeyIndex);
+		for (int i = 0; i < fileKeyIndex.size(); i++) {
+			for (int j = 0; j < resultSQLrequest.size(); j++) {
+				if (fileKeyIndex.get(i).equals(Integer.toString(resultSQLrequest.get(j).getId()))) {
 					finalIndex.add(String.valueOf(resultSQLrequest.get(j).getId()));
 				}
 			}
 		}
-		
+
 		// Contains the fusion between SQL request AND the textual request.
-		System.err.println("Final obtenue avec mix : "+finalIndex);
+		// System.err.println("Final obtenue avec mix : " + finalIndex);
+		return finalIndex;
 	}
 
 	/**
@@ -91,20 +97,3 @@ public class Mixrequest {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
