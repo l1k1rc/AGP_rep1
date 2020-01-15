@@ -28,11 +28,16 @@ public class SendValueBean {
 	}
 
 	public String direct() {
-		System.err.println("Value send to lucene--"+entryBean.getKeyword()+"\n");
+		System.err.println("Keyword send to business class-- [= "+entryBean.getKeyword()+"\n");
+		System.err.println("Price 1 send to business class-- [= "+entryBean.getPrice1()+"\n");
+		System.err.println("Price 2 send to business class-- [= "+entryBean.getPrice2()+"\n");
+		System.err.println("Excursion send to business class-- [= "+entryBean.getExcursion()+"\n");
+		System.err.println("Type stay send to business class-- [= "+entryBean.gettypeStay()+"\n");
 
-		LuceneTester.searchResult(entryBean.getKeyword());
+
+		//LuceneTester.searchResult(entryBean.getKeyword());
 		//LuceneTester.testlucene("hello this is a test");
-		return "failed";
+		return "success";
 	}
 	
 }

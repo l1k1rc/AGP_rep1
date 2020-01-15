@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-	xmlns:h="http://java.sun.com/jsf/html" 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
@@ -9,29 +9,42 @@
 	<link rel="stylesheet" type="text/css" href="template_2.css" />
 </h:head>
 <h:body>
-        <p:outputLabel for="range" value="Range Selection:" />
-        <p:datePicker id="range" selectionMode="range" value="#{calendarView.range}" readonlyInput="true" />
-  <h:form> <!-- On utilise 	<h:outputText value="#{studentBean.currentStudentName}"/> -->
-    <p:dataList value="#{studentBean.student.courses}" var="course" type="ordered"> <!-- METTRE LA VAR !!! -->
-		<div class="card" id="bright">
-		  <div class="info_section">
-		    <div class="header_travel">
-		      <img class="locandina"/>
-		      <h1>Fuerteventura</h1>
-		      <h4>Du 28/11 au 02/12</h4>
-		      <span class="price">87.40 $</span>
-		      <p class="type">Excursion : <h:outputText value="#{studentBean.student.courses}"/></p>
-		    </div>
-		    <div class="movie_desc">
-		      <p class="text">
-		        Fuerteventura, la deuxième plus grande île des Canaries, en Espagne, se trouve dans l'océan Atlantique, à 100 km de la côte nord de l'Afrique. Elle est principalement connue comme une destination de vacances en raison de ses plages de sable blanc et ses températures chaudes toute l'année, tempérées par des vents constants. Les nombreuses plages qui l'entourent sont séparées par des falaises et des criques abritées. L'île est prisée pour la pratique des sports aquatiques, notamment le surf, la planche à voile et le ski nautique.
-		      </p>
-		    </div>
-		  </div>
-		  <div class="blur_back bright_back"></div>
-		</div>
-	</p:dataList>
-  </h:form>
+	<p:outputLabel for="range" value="Range Selection:" />
+	<p:datePicker id="range" selectionMode="range"
+		value="#{calendarView.range}" readonlyInput="true" />
+	<h:form>
+		<!-- On utilise 	<h:outputText value="#{studentBean.currentStudentName}"/> -->
+		<p:dataList value="#{studentBean.student.courses}" var="course"
+			type="ordered">
+			<!-- METTRE LA VAR !!! -->
+			<div class="card" id="bright">
+				<div class="info_section">
+					<div class="header_travel">
+						<img class="locandina" />
+						<h1>Fuerteventura</h1>
+						<h4>Du 28/11 au 02/12</h4>
+						<span class="price">87.40 $</span>
+						<p class="type">
+							Excursion :
+							<h:outputText value="#{studentBean.student.courses}" />
+						</p>
+					</div>
+					<div class="movie_desc">
+						<p class="text">Fuerteventura, la deuxième plus grande île des
+							Canaries, en Espagne, se trouve dans l'océan Atlantique, à 100 km
+							de la côte nord de l'Afrique. Elle est principalement connue
+							comme une destination de vacances en raison de ses plages de
+							sable blanc et ses températures chaudes toute l'année, tempérées
+							par des vents constants. Les nombreuses plages qui l'entourent
+							sont séparées par des falaises et des criques abritées. L'île est
+							prisée pour la pratique des sports aquatiques, notamment le surf,
+							la planche à voile et le ski nautique.</p>
+					</div>
+				</div>
+				<div class="blur_back bright_back"></div>
+			</div>
+		</p:dataList>
+	</h:form>
 
 
 </h:body>

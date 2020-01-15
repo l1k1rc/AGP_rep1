@@ -35,10 +35,7 @@ public class Mixrequest {
 
 		// For SQL request
 		resultSQLrequest = SitePersistence.querySQL(s[0]);
-		for (int i = 0; i < resultSQLrequest.size(); i++)
-			System.out.println(resultSQLrequest.get(i).getId());
-		// For Lucene part
-		// System.out.println(s[0] + " :::: " + s[1]);
+		// For lucene part
 
 		LuceneTester.searchResult(s[1]);
 		// System.out.println(LuceneTester.getIndexFile());
@@ -68,7 +65,7 @@ public class Mixrequest {
 		String separator = "/";
 		ArrayList<String> resultS = new ArrayList<String>();
 		for (String s : data) {
-			System.out.println(s);
+			//System.out.println(s);
 			String[] segmentation = s.split(separator);
 			resultS.add(segmentation[segmentation.length - 1].replaceAll(".[^.]*\\z", ""));
 		}

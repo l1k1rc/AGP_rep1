@@ -20,22 +20,22 @@ public class LuceneTester {
    String dataDir = "/home/l1k1/Bureau/AGP";
    Indexer indexer;
    Searcher searcher;
-   private static ArrayList<String> indexFile = new ArrayList<String>();
-   public static void main(String[] args) {
+   private static ArrayList<String> indexFile;
+  /* public static void main(String[] args) {
 	      searchResult("plongée");
-	   }
+	   }*/
    //Add jar lucene to WEB-CONTENT/WEB-INF/lib
    public static void searchResult(String keywords) {
-	  System.err.println("Searching..."+keywords);
+	  System.err.println("Searching for :"+keywords);
       LuceneTester tester;
       try {
          tester = new LuceneTester();
-         System.out.println("Instanciation..."+keywords);
+        // System.out.println("Instanciation..."+keywords);
          Directory index = FSDirectory.open (Paths.get(indexDir));
          if (!DirectoryReader.indexExists(index)) {
         	 tester.createIndex(); 
          }
-         System.out.println("Indexation..."+keywords);
+         //System.out.println("Indexation..."+keywords);
          tester.search(keywords); // GET KEYWORD HERE
       } catch (IOException e) {
          e.printStackTrace();
@@ -57,6 +57,7 @@ public class LuceneTester {
          +(endTime-startTime)+" ms");		
    }
    private void search(String searchQuery) throws IOException, ParseException {
+	  indexFile= new ArrayList<String>();
       searcher = new Searcher(indexDir);
       long startTime = System.currentTimeMillis();
       TopDocs hits = searcher.search(searchQuery);
@@ -66,8 +67,8 @@ public class LuceneTester {
          " documents found. Time :" + (endTime - startTime));
       for(ScoreDoc scoreDoc : hits.scoreDocs) {
          Document doc = searcher.getDocument(scoreDoc);
-            System.out.println("File: "
-            + doc.get(LuceneConstants.FILE_PATH)); // get this value to send to mixrequest class
+            /*System.out.println("File: "
+            + doc.get(LuceneConstants.FILE_PATH)); // get this value to send to mixrequest class */
             indexFile.add(doc.get(LuceneConstants.FILE_PATH));
       }  
    }

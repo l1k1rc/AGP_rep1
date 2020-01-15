@@ -25,7 +25,7 @@ public class EntryBean {
 	/********************************/
 
 	public String getKeyword() {
-		System.out.println("get the keyword value : "+keyword);
+		//System.out.println("get the keyword value : "+keyword);
 		return keyword;
 	}
 
@@ -43,22 +43,22 @@ public class EntryBean {
 	}
 
 	public void setPrice2(String price2) {
-		System.out.println("Prix 2 :"+price2);
+		//System.out.println("Prix 2 :"+price2);
 		this.price2 = price2;
 	}
 
 	public void setKeyword(String keyword) {
-		System.out.println("set the keyword value : "+keyword);
+		//System.out.println("set the keyword value : "+keyword);
 		this.keyword = keyword;
 	}
 
 	public String getExcursion() {
-		System.out.println("get the excursion value : "+excursion);
+		//System.out.println("get the excursion value : "+excursion);
 		return excursion;
 	}
 
 	public void setExcursion(String excursion) {
-		System.out.println("set the excursion value : "+excursion);
+		//System.out.println("set the excursion value : "+excursion);
 		this.excursion = excursion;
 	}
 
@@ -71,12 +71,12 @@ public class EntryBean {
 	}
 
 	public String gettypeStay() {
-		System.out.println("get typeStay value : "+typeStay);
+		//System.out.println("get typeStay value : "+typeStay);
 		return typeStay;
 	}
 
 	public void settypeStay(String typeStay) {
-		System.out.println("set typeStay value : "+typeStay);
+		//System.out.println("set typeStay value : "+typeStay);
 		this.typeStay = typeStay;
 	}
 	/********************************/
