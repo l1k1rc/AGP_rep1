@@ -27,10 +27,10 @@ public class Mixrequest {
 	 * @return the result of the mix query.
 	 * @see SitePersistence
 	 */
-	public ArrayList<String> getIndexFileNumberForMixRequest() {
+	public ArrayList<String> getIndexFileNumberForMixRequest(String mix_request) {
 		ArrayList<String> finalIndex = new ArrayList<String>();
 		ArrayList<Site> resultSQLrequest = new ArrayList<Site>();
-		Mixrequest mixrequest = new Mixrequest("SELECT * FROM site WHERE price=50 with plongée;");
+		Mixrequest mixrequest = new Mixrequest(mix_request);
 		String[] s = mixrequest.getSeparatedValue();
 
 		// For SQL request
