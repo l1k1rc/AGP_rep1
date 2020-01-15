@@ -16,8 +16,8 @@ import beans.EntryBean;
 public class LuceneTester {
 	
    // Passer par le web content !!! A CORRIGER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-   static String indexDir = "/home/l1k1/Bureau/index";
-   String dataDir = "/home/l1k1/Bureau/AGP";
+   static String indexDir = "/home/raphael/Documents/AGP/index";
+   String dataDir = "/home/raphael/Documents/AGP/AGP";
    Indexer indexer;
    Searcher searcher;
    private static ArrayList<String> indexFile;

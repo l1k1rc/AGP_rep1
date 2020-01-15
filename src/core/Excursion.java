@@ -4,19 +4,23 @@ import java.util.ArrayList;
 
 public class Excursion {
 	private int id;
-	private ArrayList<Site> sites;
+	private ArrayList<Location> sites;
 	private ArrayList<Transport> transports;
 	private float price;
 	
 	public Excursion(int id) {
 		this(id, null, null, 0);
 	}
+	
+	public Excursion(int id, ArrayList<Location> sites) {
+		this(id, sites, null, 0);
+	}
 
-	public Excursion(int id, ArrayList<Site> sites, ArrayList<Transport> transports) {
+	public Excursion(int id, ArrayList<Location> sites, ArrayList<Transport> transports) {
 		this(id, sites, transports, 0);
 	}
 
-	public Excursion(int id, ArrayList<Site> sites, ArrayList<Transport> transports, float price) {
+	public Excursion(int id, ArrayList<Location> sites, ArrayList<Transport> transports, float price) {
 		super();
 		this.id = id;
 		this.sites = sites;
@@ -32,11 +36,11 @@ public class Excursion {
 		this.id = id;
 	}
 
-	public ArrayList<Site> getSites() {
+	public ArrayList<Location> getSites() {
 		return sites;
 	}
 
-	public void setSites(ArrayList<Site> sites) {
+	public void setSites(ArrayList<Location> sites) {
 		this.sites = sites;
 	}
 
