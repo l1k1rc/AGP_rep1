@@ -22,7 +22,7 @@ public class LuceneTester {
    Searcher searcher;
    private static ArrayList<String> indexFile = new ArrayList<String>();
    public static void main(String[] args) {
-	      searchResult("hello");
+	      searchResult("plongée");
 	   }
    //Add jar lucene to WEB-CONTENT/WEB-INF/lib
    public static void searchResult(String keywords) {
