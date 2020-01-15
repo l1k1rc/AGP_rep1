@@ -16,14 +16,15 @@ import beans.EntryBean;
 public class LuceneTester {
 	
    // Passer par le web content !!! A CORRIGER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-   static String indexDir = "/home/raphael/Documents/AGP/index";
-   String dataDir = "/home/raphael/Documents/AGP/AGP";
+   static String indexDir = "/home/l1k1/Bureau/index";
+   String dataDir = "/home/l1k1/Bureau/AGP";
    Indexer indexer;
    Searcher searcher;
    private static ArrayList<String> indexFile;
-  /* public static void main(String[] args) {
-	      searchResult("plongée");
-	   }*/
+   
+   public static void main(String[] args) {
+	      searchResult("fuerteventura");
+   }
    //Add jar lucene to WEB-CONTENT/WEB-INF/lib
    public static void searchResult(String keywords) {
 	  System.err.println("Searching for :"+keywords);
