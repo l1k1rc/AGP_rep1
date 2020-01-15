@@ -2,12 +2,22 @@ package persistence.API;
 
 import java.util.ArrayList;
 
+import lucene.LuceneTester;
+
 public class TextualOperator implements APIDatabase {
 
+	public ArrayList<String> indexFile = new ArrayList<String>();
+
+	@SuppressWarnings("static-access")
 	@Override
-	public ArrayList<String> queryAPI() {
+	public ArrayList<String> queryAPI(String query) {
 		// TODO Auto-generated method stub
-		return null;
+
+		ArrayList<String> indexFile = new ArrayList<String>();
+		LuceneTester tester = new LuceneTester();
+		tester.searchResult(query);
+		indexFile = tester.getIndexFile();
+		return indexFile;
 	}
 
 }
