@@ -23,7 +23,7 @@ public class SitePersistence {
 				while (result.next()) {
 					searchSite.setId(result.getInt("id"));
 					searchSite.setName(result.getString("name"));
-					searchSite.setPrice(result.getFloat("price"));
+					searchSite.setPrice(result.getInt("price"));
 					searchSite.setType(result.getString("hist_act"));
 
 					p.setX(result.getInt("position_x"));
@@ -56,7 +56,7 @@ public class SitePersistence {
 
 					searchSite.setId(result.getInt("id"));
 					searchSite.setName(result.getString("name"));
-					searchSite.setPrice(result.getFloat("price"));
+					searchSite.setPrice(result.getInt("price"));
 					searchSite.setType(result.getString("hist_act"));
 					p.setX(result.getInt("position_x"));
 					p.setY(result.getInt("position_y"));
@@ -86,7 +86,7 @@ public class SitePersistence {
 					Point p = new Point();
 					searchSite.setId(result.getInt("id"));
 					searchSite.setName(result.getString("name"));
-					searchSite.setPrice(result.getFloat("price"));
+					searchSite.setPrice(result.getInt("price"));
 					searchSite.setType(result.getString("hist_act"));
 					p.setX(result.getInt("position_x"));
 					p.setY(result.getInt("position_y"));
@@ -118,7 +118,7 @@ public class SitePersistence {
 
 					searchSite.setId(result.getInt("id"));
 					searchSite.setName(result.getString("name"));
-					searchSite.setPrice(result.getFloat("price"));
+					searchSite.setPrice(result.getInt("price"));
 					searchSite.setType(result.getString("hist_act"));
 					p.setX(result.getInt("position_x"));
 					p.setY(result.getInt("position_y"));

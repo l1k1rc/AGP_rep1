@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import core.Excursion;
 import core.Hotel;
+import core.Location;
 import core.Site;
 import core.Trip;
 
@@ -24,9 +25,52 @@ public class PricesFilter {
 		excursions_Listener(this.minimal_price, this.maximal_price, this.sites, this.hotel);
 	}
 	
+	private boolean site_redudancy(Site siteToCompare, Excursion excursion) {
+		boolean redondancy = false;
+		for(Location site: excursion.getSites()) {
+			if(site.getId() == siteToCompare.getId()) redondancy = true;
+		}
+		return redondancy;
+	}
+	
+	
+	
+	private int excursion_price(Excursion excursion) {
+		int locationPrice = 0;
+		int distance = 0;
+		int pos = 0;
+		for(Location location: excursion.getSites()) {
+			locationPrice += location.getPrice();
+			if((pos+1) <= excursion.getSites().size()) {
+				distance += Distances.disanceBetweenPoints(location.getPosition().getX(), location.getPosition().getY(), 
+						excursion.getSites().get(pos+1).getPosition().getX(), excursion.getSites().get(pos+1).getPosition().getY());
+				//TODO: Define transport type in each situation
+				
+			}	
+		}
+		
+		
+		
+		return 0;
+	}
+	
 	private void excursions_Listener(int minimal_price, int maximal_price, ArrayList<Site> sites, Hotel hotel){
+		ArrayList<Location> begining = new ArrayList<Location>();
+		begining.add(hotel);
 		
+		@SuppressWarnings("unchecked")
+		Excursion beginingExcursion = new Excursion(0, (ArrayList<Location>) begining.clone());
 		
+		ArrayList<Excursion> tempExcursions = new ArrayList<Excursion>();
+		tempExcursions.add(beginingExcursion);
+		
+		for(Excursion actual_excu: tempExcursions) {
+			for(Site site: sites) {
+				if(!site_redudancy(site, actual_excu)) {
+					
+				}
+			}
+		}
 	}
 	
 	

@@ -22,7 +22,7 @@ public class HotelPersistence {
 				Point p = new Point();
 				hotel.setId(result.getInt("id"));
 				hotel.setName(result.getString("name"));
-				hotel.setPrice_per_night(result.getFloat("price"));
+				hotel.setPrice((result.getInt("price")));
 				hotel.setBeach(result.getString("beach"));
 				hotel.setEntertainment(result.getBoolean("entertainment"));
 				hotel.setStars(result.getInt("quality"));
@@ -51,7 +51,7 @@ public class HotelPersistence {
 				Point p = new Point();
 				hotel.setId(result.getInt("id"));
 				hotel.setName(result.getString("name"));
-				hotel.setPrice_per_night(result.getFloat("price"));
+				hotel.setPrice(result.getInt("price"));
 				hotel.setBeach(result.getString("beach"));
 				hotel.setEntertainment(result.getBoolean("entertainment"));
 				hotel.setStars(result.getInt("quality"));
@@ -89,7 +89,7 @@ public class HotelPersistence {
 				Point p = new Point();
 				hotel.setId(result.getInt("id"));
 				hotel.setName(result.getString("name"));
-				hotel.setPrice_per_night(result.getFloat("price"));
+				hotel.setPrice(result.getInt("price"));
 				hotel.setBeach(result.getString("beach"));
 				hotel.setEntertainment(result.getBoolean("entertainment"));
 				hotel.setStars(result.getInt("quality"));
@@ -127,7 +127,7 @@ public class HotelPersistence {
 				Point p = new Point();
 				hotel.setId(result.getInt("id"));
 				hotel.setName(result.getString("name"));
-				hotel.setPrice_per_night(result.getFloat("price"));
+				hotel.setPrice(result.getInt("price"));
 				hotel.setBeach(result.getString("beach"));
 				hotel.setEntertainment(result.getBoolean("entertainment"));
 				hotel.setStars(result.getInt("quality"));
@@ -165,7 +165,7 @@ public class HotelPersistence {
 				Point p = new Point();
 				readHotel.setId(result.getInt("id"));
 				readHotel.setName(result.getString("name"));
-				readHotel.setPrice_per_night(result.getFloat("price"));
+				readHotel.setPrice(result.getInt("price"));
 				readHotel.setBeach(result.getString("beach"));
 				readHotel.setEntertainment(result.getBoolean("entertainment"));
 				readHotel.setStars(result.getInt("quality"));
@@ -222,7 +222,7 @@ public class HotelPersistence {
 				Point p = new Point();
 				hotel.setId(result.getInt("id_hotel"));
 				hotel.setName(result.getString("name"));
-				hotel.setPrice_per_night(result.getInt("price"));
+				hotel.setPrice(result.getInt("price"));
 				hotel.setBeach(result.getString("beach"));
 				hotel.setEntertainment(result.getBoolean("entertainment"));
 				hotel.setStars(result.getInt("quality"));
@@ -254,7 +254,7 @@ private static Hotel searchHotelByname(String id) {
 			Point p = new Point();
 			hotel.setId(result.getInt("id"));
 			hotel.setName(result.getString("name"));
-			hotel.setPrice_per_night(result.getFloat("price"));
+			hotel.setPrice(result.getInt("price"));
 			hotel.setBeach(result.getString("beach"));
 			hotel.setEntertainment(result.getBoolean("entertainment"));
 			hotel.setStars(result.getInt("quality"));
@@ -273,7 +273,7 @@ private static Hotel searchHotelByname(String id) {
 
 public static void testSerachByName(String name){
 	Hotel result = searchHotelByname(name);
-	System.out.println("Price  by night : "+result.getPrice_per_night()+"\nNearest beach: "+result.getBeach()+"\nstars: "+result.getStars());
+	System.out.println("Price  by night : "+result.getPrice()+"\nNearest beach: "+result.getBeach()+"\nstars: "+result.getStars());
 		
 }
 
