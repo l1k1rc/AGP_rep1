@@ -1,11 +1,10 @@
-package unitTest;
+/*package unitTest;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import persistence.API.APIDatabase;
@@ -45,4 +44,4 @@ class MixOperatorTest {
 		assertEquals("Le résultat aurait dû être vide", mixOperatorTExp1, mixOperatorTest);
 	}
 
-}
+}*/
