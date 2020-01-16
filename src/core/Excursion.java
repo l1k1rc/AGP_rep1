@@ -69,6 +69,10 @@ public class Excursion {
 		this.transports.add(newTransport);
 	}
 	
+	public void resetTransport() {
+		this.transports = new ArrayList<Transport>();
+	}
+	
 	public void transportsPriceRecalculator() {
 		this.transportsPrice = 0;
 		for(Transport transport: transports) {
@@ -148,7 +152,7 @@ public class Excursion {
 
 	@Override
 	public String toString() {
-		return "Excursion [locations=" + locations + ", transports=" + transports + "]";
+		return "Excursion [locations=" + locations.toString() + ", transports=" + transports.toString() + "]";
 	}
 	
 	
