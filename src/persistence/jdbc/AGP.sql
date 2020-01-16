@@ -91,8 +91,9 @@ INSERT INTO `island` (`id`, `name`) VALUES
 CREATE TABLE `site` (
   `id` int(11) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
+  `price` float DEFAULT NULL,
   `hist_act` tinyint(1) DEFAULT NULL,
+  `access` varchar(20) DEFAULT NULL,
   `position_x` int(11) DEFAULT NULL,
   `position_y` int(11) DEFAULT NULL,
   `island_id` int(11) DEFAULT NULL
@@ -102,32 +103,32 @@ CREATE TABLE `site` (
 -- Dumping data for table `site`
 --
 
-INSERT INTO `site` (`id`, `name`, `price`, `hist_act`, `position_x`, `position_y`, `island_id`) VALUES
-(1, 'parc Loro parque', 38, 0, 9, 6, 1),
-(2, 'Parcours Kayak et Snorkel', 40, 0, 11, 5, 1),
-(3, 'Piramides de Guimar', 12, 1, 10, 6, 1),
-(4, 'Le centre historique de La Orotava', 0, 1, 10, 8, 1),
-(5, 'Le centre historique de Santa Cruz de Tenerife', 0, 1, 9, 7, 1),
-(6, 'Tour en jet ski', 75, 0, 15, 6, 2),
-(7, 'Parc aquatique de Fuerteventura', 25, 0, 14, 8, 2),
-(8, 'Plongée', 50, 0, 15, 11, 2),
-(9, 'Eglise de Santa Maria de Betancuria', 0, 1, 17, 10, 2),
-(10, 'Faro de la Entallada', 0, 1, 16, 7, 2),
-(11, 'Tour de randonnée de la Gomera Canyons', 32, 0, 6, 5, 3),
-(12, 'Visite à l intérieur du parc ethnographique historique', 25, 1, 5, 6, 3),
-(13, 'Notre Dame de L Assomption', 0, 1, 6, 6, 3),
-(14, 'Torre del Conde', 0, 1, 7, 8, 3),
-(15, 'Centre historique de San Sebastián de La Gomera', 10, 1, 7, 7, 3),
-(16, 'Centre de plongée la Restinga', 50, 0, 0, 1, 4),
-(17, 'Randonnée au Sabinar', 0, 0, 0, 2, 4),
-(18, 'Spéléologie', 65, 0, 1, 3, 4),
-(19, 'Eglise de la Concepción', 0, 1, 1, 2, 4),
-(20, 'Eglise de notre Dame de Consolation et St. Simon', 0, 1, 2, 1, 4),
-(21, 'La cave Bodegas Teneguía à La Palma', 6, 0, 3, 9, 5),
-(22, 'Observation des baleines et des dauphins de 3 heures sur bateau', 65, 0, 2, 11, 5),
-(23, 'TandemFly La Palma', 80, 0, 3, 11, 5),
-(24, 'Musée archéologique benahoare', 25, 1, 3, 10, 5),
-(25, 'Église el Salvador', 0, 1, 4, 10, 5);
+INSERT INTO `site` (`id`, `name`, `price`, `hist_act`, `access`,`position_x`, `position_y`, `island_id`) VALUES
+(1, 'parc Loro parque', 38.0, 0, 'bus', 9, 6, 1),
+(2, 'Parcours Kayak et Snorkel', 40.0, 0, 'bateau', 11, 5, 1),
+(3, 'Piramides de Guimar', 12.0, 1, 'bus', 10, 6, 1),
+(4, 'Le centre historique de La Orotava', 0.0, 1, 'bus', 10, 8, 1),
+(5, 'Le centre historique de Santa Cruz de Tenerife', 0.0, 1, 'bus', 9, 7, 1),
+(6, 'Tour en jet ski', 75.0, 0, 'bateau', 15, 6, 2),
+(7, 'Parc aquatique de Fuerteventura', 25.0, 0, 'bus', 14, 8, 2),
+(8, 'Plongée', 50.0, 0, 'bateau', 15, 11, 2),
+(9, 'Eglise de Santa Maria de Betancuria', 0.0, 1, 'bus', 17, 10, 2),
+(10, 'Faro de la Entallada', 0.0, 1, 'bus', 16, 7, 2),
+(11, 'Tour de randonnée de la Gomera Canyons', 32.0, 0, 'bus', 6, 5, 3),
+(12, 'Visite à l intérieur du parc ethnographique historique', 25.0, 1, 'bus', 5, 6, 3),
+(13, 'Notre Dame de L Assomption', 0.0, 1, 'bus', 6, 6, 3),
+(14, 'Torre del Conde', 0.0, 1, 'bus', 7, 8, 3),
+(15, 'Centre historique de San Sebastián de La Gomera', 10.0, 1, 'bus', 7, 7, 3),
+(16, 'Centre de plongée la Restinga', 50.0, 0, 'bateau', 0, 1, 4),
+(17, 'Randonnée au Sabinar', 0.0, 0, 'bus', 0, 2, 4),
+(18, 'Spéléologie', 65.0, 0, 'bus', 1, 3, 4),
+(19, 'Eglise de la Concepción', 0.0, 1, 'bus', 1, 2, 4),
+(20, 'Eglise de notre Dame de Consolation et St. Simon', 0.0, 1, 'bus', 2, 1, 4),
+(21, 'La cave Bodegas Teneguía à La Palma', 6.0, 0, 'bus', 3, 9, 5),
+(22, 'Observation des baleines et des dauphins de 3 heures sur bateau', 65.0, 0, 'bateau', 2, 11, 5),
+(23, 'TandemFly La Palma', 80.0, 0, 'bus', 3, 11, 5),
+(24, 'Musée archéologique benahoare', 25.0, 1, 'bus', 3, 10, 5),
+(25, 'Église el Salvador', 0.0, 1, 'bus', 4, 10, 5);
 
 -- --------------------------------------------------------
 

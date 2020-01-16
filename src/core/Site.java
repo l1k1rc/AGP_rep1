@@ -7,9 +7,11 @@ public class Site {
 	private float price;
 	private String type;
 	private Point position;
+	private String access;
+	private boolean hist_act;
 	
 	public Site() {}
-	public Site(int id, String name, String description, float price, String type, Point position) {
+	public Site(int id, String name, String description, float price, String type, Point position, boolean hist_act) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -17,15 +19,17 @@ public class Site {
 		this.price = price;
 		this.type = type;
 		this.position = position;
+		this.hist_act = hist_act;
 	}
 	
-	public Site(int id, String name, String description, float price, int x, int y) {
+	public Site(int id, String name, String description, float price, int x, int y, boolean hist_act) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.price = price;
 		this.position = new Point(x,y);
+		this.hist_act = hist_act;
 	}
 
 	public int getId() {
@@ -74,6 +78,14 @@ public class Site {
 
 	public void setPosition(Point position) {
 		this.position = position;
+	}
+	
+	public boolean getHist_act() {
+		return hist_act;
+	}
+
+	public void setHist_act(boolean hist_act) {
+		this.hist_act = hist_act;
 	}
 
 }
