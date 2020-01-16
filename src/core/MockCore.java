@@ -75,7 +75,10 @@ public class MockCore {
 		student2.setCourses(coursesLuc);
 		return student;
 	}
-
+	private static final List<Hotel> hotelFound = new ArrayList<Hotel>();
+	static {
+		
+	}
 	public static List<Student> getAllStudents() {
 		return students;
 	}
