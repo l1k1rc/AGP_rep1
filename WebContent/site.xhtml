@@ -13,17 +13,7 @@
 		rel="stylesheet" />
 
 	<link rel="stylesheet" type="text/css" href="template_1.css" />
-	<script>
-		$(document).ready(function() {
-			$("img").click(function() {
-				if (!$(".overlay").hasClass('active')) {
-					$(".overlay").fadeIn().toggleClass('active');
-				} else {
-					$(".overlay").fadeOut().removeClass('active');
-				}
-			});
-		});
-	</script>
+	<h:outputScript library="js" name="common.js" />
 </h:head>
 <h:body>
 	<!-- Menu part -->

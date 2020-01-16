@@ -7,6 +7,7 @@
 <h:head>
 	<title>JSF Demonstration</title>
 	<link rel="stylesheet" type="text/css" href="template_2.css" />
+	<h:outputScript library="js" name="common.js" />
 </h:head>
 <h:body>
 	<h:form>
@@ -15,7 +16,7 @@
 			type="ordered" id="background">
 			<!-- METTRE LA VAR !!! -->
 			<div class="card" id="bright">
-			 	<div class="info_section">
+				<div class="info_section">
 					<div class="header_travel">
 						<h1>#{hotel.name}</h1>
 						<h4>Hôtel #{hotel.stars} étoiles</h4>

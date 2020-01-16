@@ -22,7 +22,6 @@ public class TravelBeanResult {
 
 	public List<Trip> getTrips(){
 		trips = MockCore.getTripFound();
-		System.out.println("helloooooooooooooo"+trips);
 		return trips;
 	}
 

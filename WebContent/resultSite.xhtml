@@ -7,15 +7,16 @@
 <h:head>
 	<title>JSF Demonstration</title>
 	<link rel="stylesheet" type="text/css" href="template_2.css" />
+	<h:outputScript library="js" name="common.js" />
 </h:head>
 <h:body>
 	<h:form>
 		<!-- On utilise 	<h:outputText value="#{studentBean.currentStudentName}"/> -->
-		<p:dataList value="#{siteResultBean.sites}" var="site"
-			type="ordered" id="background">
+		<p:dataList value="#{siteResultBean.sites}" var="site" type="ordered"
+			id="background">
 			<!-- METTRE LA VAR !!! -->
 			<div class="card" id="bright">
-			 	<div class="info_section">
+				<div class="info_section">
 					<div class="header_travel">
 						<h1>#{site.name}</h1>
 						<span class="price">#{site.price}.00$</span>

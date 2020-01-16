@@ -13,17 +13,7 @@
 		rel="stylesheet" />
 
 	<link rel="stylesheet" type="text/css" href="template_1.css" />
-	<script>
-		$(document).ready(function() {
-			$("img").click(function() {
-				if (!$(".overlay").hasClass('active')) {
-					$(".overlay").fadeIn().toggleClass('active');
-				} else {
-					$(".overlay").fadeOut().removeClass('active');
-				}
-			});
-		});
-	</script>
+	<h:outputScript library="js" name="common.js" />
 </h:head>
 <h:body>
 	<!-- Menu part -->
@@ -60,8 +50,8 @@
 						<h:outputText id="displayRange"
 							value="Between #{hotelBean.price1} and #{hotelBean.price2}"
 							style="color:white;" />
-						<p:slider minValue="0" maxValue="200" for="txt6,txt7" display="displayRange"
-							style="width: 500px" range="true"
+						<p:slider minValue="0" maxValue="200" for="txt6,txt7"
+							display="displayRange" style="width: 500px" range="true"
 							displayTemplate="Between {min}$ and {max}$" />
 					</h:panelGrid>
 					<h:inputHidden id="txt6" value="#{hotelBean.price1}" />
