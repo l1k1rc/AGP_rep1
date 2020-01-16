@@ -18,7 +18,7 @@ public class MockCore {
 
 	public static List<Hotel> getHotelFound(String island, String price1, String price2, String stars) {
 		System.out.println("Get hotel found by request : "+island+price1+price2+stars);
-		hotelFound = HotelPersistence.operatorSQL("SELECT * FROM hotel WHERE price>"+price1+" AND price<"+price2+" AND quality="+stars+" AND island_id="+island);
+		hotelFound = HotelPersistence.operatorSQL("SELECT * FROM hotel WHERE price>="+price1+" AND price<="+price2+" AND quality="+stars+" AND island_id="+island);
 		return hotelFound;
 	}
 	
