@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import persistence.jdbc.HotelPersistence;
+
 /**
  * A utility class for providing data simulation (act as a simple database).
  * 
@@ -75,12 +77,19 @@ public class MockCore {
 		student2.setCourses(coursesLuc);
 		return student;
 	}
-	private static final List<Hotel> hotelFound = new ArrayList<Hotel>();
+	private static List<Hotel> hotelFound = new ArrayList<Hotel>();
 	static {
-		
+		hotelFound = HotelPersistence.operatorSQL("SELECT * FROM hotel WHERE quality=3");
 	}
 	public static List<Student> getAllStudents() {
 		return students;
 	}
+
+	public static List<Hotel> getHotelFound() {
+		System.out.println("Get hotel found by request");
+		return hotelFound;
+	}
+
+	
 
 }

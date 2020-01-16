@@ -11,18 +11,18 @@
 <h:body>
 	<h:form>
 		<!-- On utilise 	<h:outputText value="#{studentBean.currentStudentName}"/> -->
-		<p:dataList value="#{hotelResultBean}" var="course"
+		<p:dataList value="#{hotelResultBean.hotels}" var="hotel"
 			type="ordered" id="background">
 			<!-- METTRE LA VAR !!! -->
 			<div class="card" id="bright">
 			 	<div class="info_section">
 					<div class="header_travel">
-						<h1>Fuerteventura</h1>
-						<h4>Du 28/11 au 02/12</h4>
-						<span class="price">87.40 $</span>
+						<h1>#{hotel.name}</h1>
+						<h4>Hôtel #{hotel.stars} étoiles</h4>
+						<span class="price">#{hotel.price}.00$</span>
 						<p class="type">
-							Excursion :
-							<h:outputText value="#{studentBean.student.courses}" />
+							Plage :
+							<h:outputText value="#{hotel.beach}" />
 						</p>
 					</div>
 					<div class="movie_desc">

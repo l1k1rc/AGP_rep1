@@ -15,8 +15,8 @@ import org.apache.lucene.store.FSDirectory;
 public class LuceneTester {
 	
    // Passer par le web content !!! A CORRIGER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-   static String indexDir = "/home/julien/eclipse-workspace/bank8/index";
-   String dataDir = "/home/julien/eclipse-workspace/bank8/WebContent/AGP";
+   static String indexDir = "/home/l1k1/Bureau/index";
+   String dataDir = "/home/l1k1/Bureau/AGP";
    Indexer indexer;
    Searcher searcher;
    private static ArrayList<String> indexFile;
