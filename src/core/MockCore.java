@@ -21,7 +21,8 @@ public class MockCore {
 		hotelFound = HotelPersistence.operatorSQL("SELECT * FROM hotel WHERE price>"+price1+" AND price<"+price2+" AND quality="+stars+" AND island_id="+island);
 		return hotelFound;
 	}
-	public static List<Site> getSiteFound(String island , String price1 , String price2 , boolean activity ) {
+	
+	public static List<Site> getSiteFound(String island , String price1 , String price2 , int activity ) {
 		System.out.println("Get site found by request : "+island+price1+price2+activity);
 		siteFound = SitePersistence.querySQL("SELECT * FROM site WHERE price>"+price1+" AND price<"+price2+" AND hist_act="+activity+" AND island_id="+island);
 		return siteFound;

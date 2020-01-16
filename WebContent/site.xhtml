@@ -48,11 +48,11 @@
 					<!-- Choisir le type d'excursion -->
 					<h:panelGrid columns="2">
 						<p:selectOneMenu value="#{siteBean.ile}">
-							<f:selectItem itemLabel="Tenerife" itemValue="historique" />
-							<f:selectItem itemLabel="Fuerteventura" itemValue="loisirs" />
-							<f:selectItem itemLabel="La Gomera" itemValue="deux" />
-							<f:selectItem itemLabel="El Hierro" itemValue="deux" />
-							<f:selectItem itemLabel="La Palma" itemValue="deux" />
+							<f:selectItem itemLabel="Tenerife" itemValue="1" />
+							<f:selectItem itemLabel="Fuerteventura" itemValue="2" />
+							<f:selectItem itemLabel="La Gomera" itemValue="3" />
+							<f:selectItem itemLabel="El Hierro" itemValue="4" />
+							<f:selectItem itemLabel="La Palma" itemValue="5" />
 						</p:selectOneMenu>
 					</h:panelGrid>
 					<!-- Choix interval de prix -->
@@ -69,8 +69,8 @@
 					<!-- Rechercher pour un type de site -->
 					<h:panelGrid columns="2">
 						<p:selectOneMenu value="#{siteBean.type}">
-							<f:selectItem itemLabel="Site historique " itemValue="historical" />
-							<f:selectItem itemLabel="Activité" itemValue="activite" />
+							<f:selectItem itemLabel="Site historique " itemValue="1" />
+							<f:selectItem itemLabel="Activité" itemValue="0" />
 						</p:selectOneMenu>
 					</h:panelGrid>
 				</div>
