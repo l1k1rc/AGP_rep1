@@ -5,31 +5,44 @@ import java.util.ArrayList;
 public class Trip {
 	private int id;
 	private Hotel hotel;
-	private int duration_in_days;
+	private int duration;
 	private ArrayList<Excursion> excursions;
-	private float price;
+	private int price;
 	
 	public Trip(int id) {
-		this(id, null, 0, null, 0);
+		this(id, null, null, 0);
 	}
 	
 	public Trip(int id, Hotel hotel) {
-		this(id, hotel, 0, null, 0);
+		this(id, hotel, null, 0);
 	}
 
-	public Trip(int id, Hotel hotel, int duration_in_days, ArrayList<Excursion> excursions) {
-		this(id, hotel, duration_in_days, excursions, 0);
+	public Trip(int id, Hotel hotel, ArrayList<Excursion> excursions) {
+		this(id, hotel, excursions, 0);
+		this.priceRecalculator();
 	}
 
-	public Trip(int id, Hotel hotel, int duration_in_days, ArrayList<Excursion> excursions, float price) {
+	public Trip(int id, Hotel hotel, ArrayList<Excursion> excursions, int price) {
 		super();
 		this.id = id;
 		this.hotel = hotel;
-		this.duration_in_days = duration_in_days;
+		this.duration = StaticData.trip_duration;
 		this.excursions = excursions;
 		this.price = price;
 	}
 
+	public void addExcursion(Excursion newExcursion) {
+		this.excursions.add(newExcursion);
+	}
+	
+	public void priceRecalculator() {
+		this.price = 0;
+		for(Excursion excursion: this.excursions) {
+			excursion.totalPriceRecalculator();
+			price += excursion.getTotalPrice();
+		}
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -46,12 +59,12 @@ public class Trip {
 		this.hotel = hotel;
 	}
 
-	public int getDuration_in_days() {
-		return duration_in_days;
+	public int getDuration() {
+		return duration;
 	}
 
-	public void setDuration_in_days(int duration_in_days) {
-		this.duration_in_days = duration_in_days;
+	public void setDuration(int duration) {
+		this.duration = duration;
 	}
 
 	public ArrayList<Excursion> getExcursions() {
@@ -62,11 +75,11 @@ public class Trip {
 		this.excursions = excursions;
 	}
 
-	public float getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	
