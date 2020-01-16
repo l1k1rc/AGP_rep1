@@ -4,28 +4,72 @@ import java.util.ArrayList;
 
 public class Excursion {
 	private int id;
-	private ArrayList<Location> sites;
+	private int excursionFee;
+	private ArrayList<Location> locations;
+	private int locationsPrice;
 	private ArrayList<Transport> transports;
-	private float price;
+	private int transportsPrice;
+	private int totalPrice;
+
 	
 	public Excursion(int id) {
-		this(id, null, null, 0);
+		this(id, null, 0, null, 0, 0);
 	}
 	
 	public Excursion(int id, ArrayList<Location> sites) {
-		this(id, sites, null, 0);
+		this(id, sites, 0, null, 0, 0);
 	}
 
 	public Excursion(int id, ArrayList<Location> sites, ArrayList<Transport> transports) {
-		this(id, sites, transports, 0);
+		this(id, sites, 0, transports, 0, 0);
 	}
-
-	public Excursion(int id, ArrayList<Location> sites, ArrayList<Transport> transports, float price) {
+	
+	public Excursion(int id, ArrayList<Location> locations, int locationsPrice,
+			ArrayList<Transport> transports, int transportsPrice, int totalPrice) {
 		super();
 		this.id = id;
-		this.sites = sites;
+		this.excursionFee = StaticData.excursion_fee;
+		this.locations = locations;
+		this.locationsPrice = locationsPrice;
 		this.transports = transports;
-		this.price = price;
+		this.transportsPrice = transportsPrice;
+		this.totalPrice = totalPrice;
+	}
+
+	public void addLocation(Location newLocation) {
+		locations.add(newLocation);
+	}
+	
+	public void locationsPriceRecalculator() {
+		this.locationsPrice = 0;
+		for(Location location: locations) {
+			locationsPrice += location.getPrice();
+		}
+	}
+	
+	public void addTransport(Transport newTransport) {
+		transports.add(newTransport);
+	}
+	
+	public void transportsPriceRecalculator() {
+		this.transportsPrice = 0;
+		for(Transport transport: transports) {
+			transport.priceRecalculator();
+			transportsPrice += transport.getPrice();
+		}
+	}
+	
+	public void totalPriceRecalculator() {
+		this.locationsPriceRecalculator();
+		this.transportsPriceRecalculator();
+		this.totalPrice = this.excursionFee+this.locationsPrice+this.transportsPrice;
+	}
+	
+	public void endExcursion() {
+		Location hotel = this.locations.get(0);
+		//Be sure to not pay hotel 2 times by day
+		hotel.setPrice(0);
+		this.locations.add(hotel);
 	}
 
 	public int getId() {
@@ -36,12 +80,28 @@ public class Excursion {
 		this.id = id;
 	}
 
-	public ArrayList<Location> getSites() {
-		return sites;
+	public int getExcursionFee() {
+		return excursionFee;
 	}
 
-	public void setSites(ArrayList<Location> sites) {
-		this.sites = sites;
+	public void setExcursionFee(int excursionFee) {
+		this.excursionFee = excursionFee;
+	}
+
+	public ArrayList<Location> getLocations() {
+		return locations;
+	}
+
+	public void setLocations(ArrayList<Location> locations) {
+		this.locations = locations;
+	}
+
+	public int getLocationsPrice() {
+		return locationsPrice;
+	}
+
+	public void setLocationsPrice(int locationsPrice) {
+		this.locationsPrice = locationsPrice;
 	}
 
 	public ArrayList<Transport> getTransports() {
@@ -52,12 +112,20 @@ public class Excursion {
 		this.transports = transports;
 	}
 
-	public float getPrice() {
-		return price;
+	public int getTransportsPrice() {
+		return transportsPrice;
 	}
 
-	public void setPrice(float price) {
-		this.price = price;
+	public void setTransportsPrice(int transportsPrice) {
+		this.transportsPrice = transportsPrice;
 	}
-	
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
 }
