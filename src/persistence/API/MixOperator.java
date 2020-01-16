@@ -6,7 +6,7 @@ import org.apache.commons.lang.StringUtils;
 
 import persistence.jdbc.Mixrequest;
 
-public class MixOperator implements APIDatabase {
+public class MixOperator implements FacadeAPI {
 	public ArrayList<String> result = new ArrayList<String>();
 
 	@Override

@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import persistence.API.APIDatabase;
+import persistence.API.FacadeAPI;
 import persistence.API.SQLOperator;
 
 class SQLOperatorTest {
 	
 	private ArrayList<String> sqlOperatorTest = new ArrayList<String>();
-	private static APIDatabase apiSQL;
+	private static FacadeAPI apiSQL;
 	private static String requestTest1;
 	private static String requestTest2;
 

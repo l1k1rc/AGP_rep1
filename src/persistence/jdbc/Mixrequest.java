@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 import core.Site;
 import lucene.LuceneTester;
-import persistence.API.APIDatabase;
+import persistence.API.FacadeAPI;
 import persistence.API.MixOperator;
 /**
  * This class allow to merge data from SQL query and textual query.
- * @see APIDatabase
+ * @see FacadeAPI
  * @see MixOperator
  *
  */

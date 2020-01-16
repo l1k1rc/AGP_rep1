@@ -8,14 +8,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import lucene.LuceneTester;
-import persistence.API.APIDatabase;
-
+import persistence.API.FacadeAPI;
 import persistence.API.TextualOperator;
 
 class TextualOperatorTest {
 	private ArrayList<String> textOperatorTest = new ArrayList<String>();
 	private static String requestTest;
-	private static APIDatabase apiText;
+	private static FacadeAPI apiText;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {

@@ -9,18 +9,14 @@
 	<link rel="stylesheet" type="text/css" href="template_2.css" />
 </h:head>
 <h:body>
-	<p:outputLabel for="range" value="Range Selection:" />
-	<p:datePicker id="range" selectionMode="range"
-		value="#{calendarView.range}" readonlyInput="true" />
 	<h:form>
 		<!-- On utilise 	<h:outputText value="#{studentBean.currentStudentName}"/> -->
 		<p:dataList value="#{studentBean.student.courses}" var="course"
-			type="ordered">
+			type="ordered" id="background">
 			<!-- METTRE LA VAR !!! -->
 			<div class="card" id="bright">
-				<div class="info_section">
+			 	<div class="info_section">
 					<div class="header_travel">
-						<img class="locandina" />
 						<h1>Fuerteventura</h1>
 						<h4>Du 28/11 au 02/12</h4>
 						<span class="price">87.40 $</span>

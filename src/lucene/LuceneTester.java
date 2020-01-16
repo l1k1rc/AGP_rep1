@@ -12,7 +12,6 @@ import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
-import beans.EntryBean;
 public class LuceneTester {
 	
    // Passer par le web content !!! A CORRIGER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -72,8 +71,9 @@ public class LuceneTester {
             indexFile.add(doc.get(LuceneConstants.FILE_PATH));
       }  
    }
+
 	public static ArrayList<String> getIndexFile() {
 		return indexFile;
 	}
-   
+
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import core.Site;
 import persistence.jdbc.SitePersistence;
 
-public class SQLOperator implements APIDatabase{
+public class SQLOperator implements FacadeAPI{
 	
 	
 

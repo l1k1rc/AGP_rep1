@@ -2,10 +2,65 @@
 	url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800")
 	;
 
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+/***************************ADD MENU***************************************************/
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
 
+.overlay {
+  z-index:999;
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #34495e;
+}
 
+.groupLink {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.groupLink .glink {
+  list-style-type: none;
+  margin: 20px 0;
+  font-size: 26px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.groupLink .glink:hover {
+  transform: translateX(-10px);
+}
+
+img {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+/******************************************************************************/
+
+/*Take the primeface CSS to be modified and remove the bad parameters*/
+html,.ui-widget-content{
+		width:100%;
+		height:100%;
+		background:url(image/canaryIsland.jpeg) top right no-repeat; 
+		background-attachment:fixed; 
+		border:0px solid #a8a8a8;
+		color:black;
+}
 /***********************************************************************************/
-html, body {
+body {
 	color: black;
 	background-color: white;
 	background-image: url(image/canaryIsland.jpeg);
@@ -156,5 +211,5 @@ html, body {
 
 .bright_back {
 	background:
-		url("https://resize-parismatch.lanmedia.fr/r/901,,forcex/img/var/news/storage/images/paris-match/vivre/voyage/iles-canaries-il-y-a-mille-et-une-raisons-d-y-poser-ses-valises-1658853/plage-de-papagayo-lanzarote/27059588-1-fre-FR/Plage-de-Papagayo-Lanzarote.jpg");
+		url("http://www.maximumwall.com/wp-content/uploads/2015/07/fonds-ecran-iles-canaries-19.jpg");
 }
