@@ -16,10 +16,10 @@ public class HotelResultBean {
 	private HotelBean hotelBean;
 	private List<Hotel> hotels;
 	private String islandName;
-	
+
 	public HotelResultBean() {
 		// On ne peut pas appelr le bean dans le constructuer -> error 500
-		//this.islandName=hotelBean.getIle();
+		// this.islandName=hotelBean.getIle();
 	}
 
 	public HotelBean getHotelBean() {
@@ -39,9 +39,9 @@ public class HotelResultBean {
 	}
 
 	public List<Hotel> getHotels() {
-		hotels = MockCore.getHotelFound(hotelBean.getIle(), hotelBean.getPrice1(), hotelBean.getPrice2(),hotelBean.getRange());
+		hotels = MockCore.getHotelFound(hotelBean.getIle(), hotelBean.getPrice1(), hotelBean.getPrice2(),
+				hotelBean.getRange());
 		return hotels;
 	}
 
-	
 }

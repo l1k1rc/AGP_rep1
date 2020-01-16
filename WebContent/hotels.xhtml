@@ -60,9 +60,9 @@
 						<h:outputText id="displayRange"
 							value="Between #{hotelBean.price1} and #{hotelBean.price2}"
 							style="color:white;" />
-						<p:slider for="txt6,txt7" display="displayRange"
+						<p:slider minValue="0" maxValue="200" for="txt6,txt7" display="displayRange"
 							style="width: 500px" range="true"
-							displayTemplate="Between {min}0$ and {max}0$" />
+							displayTemplate="Between {min}$ and {max}$" />
 					</h:panelGrid>
 					<h:inputHidden id="txt6" value="#{hotelBean.price1}" />
 					<h:inputHidden id="txt7" value="#{hotelBean.price2}" />
