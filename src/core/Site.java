@@ -31,12 +31,11 @@ public class Site extends Location{
 	
 	public String getTextSite(int id) {
 		StringWriter out = new StringWriter();
-		try(BufferedReader reader = Files.newBufferedReader(Paths.get("C:\\Users\\braul\\OneDrive\\Bureau\\agp\\" + id + ".txt"))) {
+		try(BufferedReader reader = Files.newBufferedReader(Paths.get("/home/l1k1/Bureau/AGP/" + id + ".txt"))) {
 		    for(String ligne = reader.readLine(); ligne!=null; ligne = reader.readLine()) {
 		    	out.write(ligne);
 		        out.flush();
 		        out.close();
-		    	System.out.println(out);
 		    }
 		} catch (IOException e) {
 		    e.printStackTrace();

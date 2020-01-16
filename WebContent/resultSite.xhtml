@@ -10,6 +10,17 @@
 	<h:outputScript library="js" name="common.js" />
 </h:head>
 <h:body>
+	<!-- Menu part -->
+	<img src="http://cdn.flaticon.com/png/256/60510.png" alt="" />
+	<div class="overlay">
+		<div class="text">
+			<ul class="groupLink">
+				<li class="glink"><a href="index.jsf">Séjour</a></li>
+				<li class="glink"><a href="site.jsf">Site</a></li>
+				<li class="glink"><a href="hotels.jsf">Hôtels</a></li>
+			</ul>
+		</div>
+	</div>
 	<h:form>
 		<!-- On utilise 	<h:outputText value="#{studentBean.currentStudentName}"/> -->
 		<p:dataList value="#{siteResultBean.sites}" var="site" type="ordered"
