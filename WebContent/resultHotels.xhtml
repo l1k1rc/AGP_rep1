@@ -19,22 +19,14 @@
 					<div class="header_travel">
 						<h1>#{hotel.name}</h1>
 						<h4>Hôtel #{hotel.stars} étoiles</h4>
-						<span class="price">#{hotel.price}.00$</span>
+						<span class="price">#{hotel.price}.00$/nuit</span>
 						<p class="type">
 							Plage :
 							<h:outputText value="#{hotel.beach}" />
 						</p>
 					</div>
 					<div class="movie_desc">
-						<p class="text">Fuerteventura, la deuxième plus grande île des
-							Canaries, en Espagne, se trouve dans l'océan Atlantique, à 100 km
-							de la côte nord de l'Afrique. Elle est principalement connue
-							comme une destination de vacances en raison de ses plages de
-							sable blanc et ses températures chaudes toute l'année, tempérées
-							par des vents constants. Les nombreuses plages qui l'entourent
-							sont séparées par des falaises et des criques abritées. L'île est
-							prisée pour la pratique des sports aquatiques, notamment le surf,
-							la planche à voile et le ski nautique.</p>
+						<p class="text">#{hotel.getTextPresentationPer(hotel.stars)}</p>
 					</div>
 				</div>
 				<div class="blur_back bright_back"></div>

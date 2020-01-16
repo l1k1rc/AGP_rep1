@@ -43,6 +43,7 @@ class SQLOperatorTest {
 		sqlOperatorTExp1.add("38.0");
 		sqlOperatorTExp1.add("false");
 		sqlOperatorTExp1.add("[9,6]");
+		sqlOperatorTExp1.add("1");
 		assertEquals("Le résultat de la requête aurait dû être vide", sqlOperatorTExp1, sqlOperatorTest);
 		
 	}
