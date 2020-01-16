@@ -1,60 +1,94 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-	xmlns:h="http://java.sun.com/jsf/html" 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
-  <h:head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="colorlib.com"></meta>
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
-    <link href="template_1.css" rel="stylesheet" />
-  </h:head>
-  <h:body>
-    <div class="s01">
-      <h:form>
-        <fieldset>
-          <legend>Discover the Canary Islands</legend>
-        </fieldset>
-       	 <!-- Rechercher un mot clé -->
-       	 <div class="inner-form">
-          <div class="input-field first-wrap">
-            <h:inputText value="#{entryBean.keyword}" id="search" a:placeholder="What are you looking for?" />
-          </div>
-		  <div class="under-form">
-	          <!-- Choisir le type d'excursion -->
-	          <h:panelGrid columns="2">
-		        <p:selectOneMenu value="#{entryBean.excursion}">
-		            <f:selectItem itemLabel="Excursion historique" itemValue="historique" />
-		            <f:selectItem itemLabel="Excursion de loisirs" itemValue="loisirs" />
-		            <f:selectItem itemLabel="Les deux" itemValue="deux" />
-		        </p:selectOneMenu>
-		      </h:panelGrid>
-		      <!-- Choix interval de prix -->
-			    <h:panelGrid columns="1">
-			        <h:outputText id="displayRange" value="Between #{entryBean.price1} and #{entryBean.price2}" style="color:white;"/>
-			        <p:slider for="txt6,txt7" display="displayRange" style="width: 500px" range="true" displayTemplate="Between {min}0$ and {max}0$" />
-			    </h:panelGrid>
-			    <h:inputHidden id="txt6" value="#{entryBean.price1}"/>
-			    <h:inputHidden id="txt7" value="#{entryBean.price2}"/>
-			  <!-- Rechercher pour une date -->
-	       	  <h:panelGrid columns="2">
-		        <p:selectOneMenu value="#{entryBean.typeStay}">
-		            <f:selectItem itemLabel="Séjour sportif" itemValue="sportif" />
-		            <f:selectItem itemLabel="Séjour confortable" itemValue="confortable" />
-		        </p:selectOneMenu>
-		      </h:panelGrid>
-	      </div>
-	      <!-- Valide le filtrage pour passage à la page suivante -->
-          <div class="input-field third-wrap">
-            <h:commandButton value="Search" class="btn-search" action="#{sendValueBean.direct}" />
-          </div>
-        </div>
-      </h:form>
-    </div>
-  </h:body>
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="author" content="colorlib.com"></meta>
+	<link href="https://fonts.googleapis.com/css?family=Poppins"
+		rel="stylesheet" />
+
+	<link rel="stylesheet" type="text/css" href="template_1.css" />
+	<script>
+		$(document).ready(function() {
+			$("img").click(function() {
+				if (!$(".overlay").hasClass('active')) {
+					$(".overlay").fadeIn().toggleClass('active');
+				} else {
+					$(".overlay").fadeOut().removeClass('active');
+				}
+			});
+		});
+	</script>
+</h:head>
+<h:body>
+	<!-- Menu part -->
+	<img src="http://cdn.flaticon.com/png/256/60510.png" alt="" />
+	<div class="overlay">
+		<div class="text">
+			<ul class="groupLink">
+				<li class="glink">NEM</li>
+				<li class="glink">EXTRA NEEEEEEEEEEEEEM</li>
+				<li class="glink">NEM</li>
+			</ul>
+		</div>
+	</div>
+	<!-- Filters part -->
+	<div class="s01">
+		<h:form>
+			<fieldset>
+				<legend>Discover the Canary Islands</legend>
+			</fieldset>
+			<!-- Rechercher un mot clé -->
+			<div class="inner-form">
+				<div class="input-field first-wrap">
+					<h:inputText value="#{entryBean.keyword}" id="search"
+						a:placeholder="What are you looking for?" />
+				</div>
+				<div class="under-form">
+					<!-- Choisir le type d'excursion -->
+					<h:panelGrid columns="2">
+						<p:selectOneMenu value="#{entryBean.excursion}">
+							<f:selectItem itemLabel="Excursion historique"
+								itemValue="historique" />
+							<f:selectItem itemLabel="Excursion de loisirs"
+								itemValue="loisirs" />
+							<f:selectItem itemLabel="Les deux" itemValue="deux" />
+						</p:selectOneMenu>
+					</h:panelGrid>
+					<!-- Choix interval de prix -->
+					<h:panelGrid columns="1">
+						<h:outputText id="displayRange"
+							value="Between #{entryBean.price1} and #{entryBean.price2}"
+							style="color:white;" />
+						<p:slider for="txt6,txt7" display="displayRange"
+							style="width: 500px" range="true"
+							displayTemplate="Between {min}0$ and {max}0$" />
+					</h:panelGrid>
+					<h:inputHidden id="txt6" value="#{entryBean.price1}" />
+					<h:inputHidden id="txt7" value="#{entryBean.price2}" />
+					<!-- Rechercher pour une date -->
+					<h:panelGrid columns="2">
+						<p:selectOneMenu value="#{entryBean.typeStay}">
+							<f:selectItem itemLabel="Séjour sportif" itemValue="sportif" />
+							<f:selectItem itemLabel="Séjour confortable"
+								itemValue="confortable" />
+						</p:selectOneMenu>
+					</h:panelGrid>
+				</div>
+				<!-- Valide le filtrage pour passage à la page suivante -->
+				<div class="input-field third-wrap">
+					<h:commandButton value="Search" class="btn-search"
+						action="#{sendValueBean.direct}" />
+				</div>
+			</div>
+		</h:form>
+	</div>
+</h:body>
 </html>
- 
+

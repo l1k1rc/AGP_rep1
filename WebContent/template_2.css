@@ -10,6 +10,7 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Sans);
 
 .overlay {
+  z-index:999;
   display: none;
   width: 100%;
   height: 100%;
