@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import core.Hotel;
 import core.Point;
+import core.Site;
 
 
 public class HotelPersistence {
@@ -29,6 +30,7 @@ public class HotelPersistence {
 				p.setX(result.getInt("position_x"));
 				p.setY(result.getInt("position_y"));
 				hotel.setPosition(p);
+				hotel.setIsland(result.getInt("island_id"));
 				hotelList.add(hotel);
 			}
 			preparedStatement.close();
@@ -58,6 +60,7 @@ public class HotelPersistence {
 				p.setX(result.getInt("position_x"));
 				p.setY(result.getInt("position_y"));
 				hotel.setPosition(p);
+				hotel.setIsland(result.getInt("island_id"));
 			}
 
 			preparedStatement.close();
@@ -96,6 +99,7 @@ public class HotelPersistence {
 				p.setX(result.getInt("position_x"));
 				p.setY(result.getInt("position_y"));
 				hotel.setPosition(p);
+				hotel.setIsland(result.getInt("island_id"));
 				hotelList.add(hotel);
 			
 			}
@@ -134,6 +138,7 @@ public class HotelPersistence {
 				p.setX(result.getInt("position_x"));
 				p.setY(result.getInt("position_y"));
 				hotel.setPosition(p);
+				hotel.setIsland(result.getInt("island_id"));
 				hotelList.add(hotel);
         
                
@@ -172,6 +177,7 @@ public class HotelPersistence {
 				p.setX(result.getInt("position_x"));
 				p.setY(result.getInt("position_y"));
 				readHotel.setPosition(p);
+				readHotel.setIsland(result.getInt("island_id"));
 				hotelList.add(readHotel);
 			}
 			preparedStatement.close();
@@ -229,6 +235,7 @@ public class HotelPersistence {
 				p.setX(result.getInt("position_x"));
 				p.setY(result.getInt("position_y"));
 	            hotel.setPosition(p);
+	            hotel.setIsland(result.getInt("island_id"));
 				priceResult.add(hotel);
 			}
 			result.close();
@@ -237,6 +244,49 @@ public class HotelPersistence {
 			System.err.println(se.getMessage());
 		}
 		return priceResult;
+	}
+	
+	private static ArrayList<Hotel> searchByIsland(String name) {
+		ArrayList<Hotel> dataHotel = new ArrayList<Hotel>();
+		try {
+			String selectSiteQuery = "SELECT * FROM hotel AS a WHERE a.island_id = (SELECT id FROM island WHERE name=?) ";
+			Connection dbConnection = JdbcConnection.getConnection();
+			java.sql.PreparedStatement preparedStatement = dbConnection.prepareStatement(selectSiteQuery);
+			preparedStatement.setString(1, name);
+			ResultSet result = preparedStatement.executeQuery();
+
+			while (result.next()) {
+				Hotel searchHotel = new Hotel();
+				Point p = new Point();
+				searchHotel.setId(result.getInt("id"));
+				searchHotel.setName(result.getString("name"));
+				searchHotel.setPrice(result.getInt("price"));
+				searchHotel.setBeach(result.getString("beach"));
+				searchHotel.setEntertainment(result.getBoolean("entertainment"));
+				searchHotel.setStars(result.getInt("quality"));
+				p.setX(result.getInt("position_x"));
+				p.setY(result.getInt("position_y"));
+				searchHotel.setPosition(p);
+				searchHotel.setIsland(result.getInt("island_id"));
+				
+				dataHotel.add(searchHotel);
+			}
+
+			preparedStatement.close();
+
+		} catch (SQLException se) {
+			System.err.println(se.getMessage());
+		}
+		return dataHotel;
+	}
+	
+	public static void main(String[] args) {
+		ArrayList<Hotel> result=searchByIsland("Tenerife");
+		if(result.size()!=0){
+			for(Hotel a : result){
+				System.out.println(a.getIsland());
+			}
+		}
 	}
 	
 
@@ -261,6 +311,7 @@ private static Hotel searchHotelByname(String id) {
 			p.setX(result.getInt("position_x"));
 			p.setY(result.getInt("position_y"));
 			hotel.setPosition(p);
+			hotel.setIsland(result.getInt("island_id"));
 		}
 
 		preparedStatement.close();
