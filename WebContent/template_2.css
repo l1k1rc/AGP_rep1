@@ -47,7 +47,10 @@ img {
   z-index: 9999;
   cursor: pointer;
 }
-
+a{
+	text-decoration: none;
+	color:white;
+}
 /******************************************************************************/
 
 /*Take the primeface CSS to be modified and remove the bad parameters*/
