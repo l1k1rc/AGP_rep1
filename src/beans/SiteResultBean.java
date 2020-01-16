@@ -1,0 +1,47 @@
+package beans;
+
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
+
+import core.Site;
+import core.Hotel;
+import core.MockCore;
+
+@ManagedBean
+@RequestScoped
+public class SiteResultBean {
+	@ManagedProperty(value = "#{siteBean}")
+	private SiteBean siteBean;
+	//private List<Site> sites = MockCore.getSiteFound();
+	private String islandName;
+	
+	
+	public SiteResultBean() {
+		// On ne peut pas appeler le bean dans le constructeur -> error 500
+		//this.islandName=siteBean.getIle();
+	}
+	
+	public SiteBean getSiteBean() {
+		return siteBean;
+	}
+	public void setSiteBean(SiteBean siteBean) {
+		this.siteBean = siteBean;
+	}
+	/*public List<Site> getSites() {
+		return sites;
+	}
+	//public void setSites(List<Site> sites) {
+		//this.sites = sites;
+	//}*/
+	public String getIslandName() {
+		return islandName;
+	}
+	public void setIslandName(String islandName) {
+		this.islandName = islandName;
+	}
+
+	
+}
