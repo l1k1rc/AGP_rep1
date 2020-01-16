@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import domain.tripBuilder;
+import persistence.API.FacadeAPI;
 import persistence.jdbc.HotelPersistence;
 import persistence.jdbc.SitePersistence;
 
@@ -15,6 +18,7 @@ public class MockCore {
 
 	private static List<Hotel> hotelFound = new ArrayList<Hotel>();
 	private static List<Site>  siteFound = new ArrayList<Site>();
+	private static List<Trip>  tripFound = new ArrayList<Trip>();
 
 	public static List<Hotel> getHotelFound(String island, String price1, String price2, String stars) {
 		System.out.println("Get hotel found by request : "+island+price1+price2+stars);
@@ -27,6 +31,11 @@ public class MockCore {
 		System.out.println("Get site found by request : "+island+price1+price2+activity);
 		siteFound = SitePersistence.querySQL("SELECT * FROM site WHERE price>="+price1+" AND price<="+price2+" AND hist_act="+activity+" AND island_id="+island);
 		return siteFound;
+	}
+	public static List<Trip> getTripFound(){
+		tripFound = tripBuilder.tripBuilderAgent(null, null, 0, 0, null);
+		System.out.println("Get trips found by request : "+tripFound);
+		return tripFound;
 	}
 	
 

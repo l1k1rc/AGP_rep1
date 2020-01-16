@@ -19,7 +19,6 @@ public class HotelResultBean {
 
 	public HotelResultBean() {
 		// On ne peut pas appelr le bean dans le constructuer -> error 500
-		// this.islandName=hotelBean.getIle();
 	}
 
 	public HotelBean getHotelBean() {
