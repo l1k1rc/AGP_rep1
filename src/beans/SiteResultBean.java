@@ -15,7 +15,7 @@ import core.MockCore;
 public class SiteResultBean {
 	@ManagedProperty(value = "#{siteBean}")
 	private SiteBean siteBean;
-	//private List<Site> sites = MockCore.getSiteFound();
+	private List<Site> sites ;
 	private String islandName;
 	
 	
@@ -41,6 +41,11 @@ public class SiteResultBean {
 	}
 	public void setIslandName(String islandName) {
 		this.islandName = islandName;
+	}
+	
+	public List<Site> getSites() {
+		sites = MockCore.getSiteFound(siteBean.getIle(), siteBean.getPrice1(), siteBean.getPrice2(), siteBean.getType());
+		return sites;
 	}
 
 	
