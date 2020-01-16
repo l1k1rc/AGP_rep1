@@ -1,5 +1,11 @@
 package core;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class Site extends Location{
 	private boolean hist_act;
 	
@@ -22,4 +28,21 @@ public class Site extends Location{
 	public void setHist_act(boolean hist_act) {
 		this.hist_act = hist_act;
 	}
+	
+	public String getTextSite(int id) {
+		StringWriter out = new StringWriter();
+		try(BufferedReader reader = Files.newBufferedReader(Paths.get("C:\\Users\\braul\\OneDrive\\Bureau\\agp\\" + id + ".txt"))) {
+		    for(String ligne = reader.readLine(); ligne!=null; ligne = reader.readLine()) {
+		    	out.write(ligne);
+		        out.flush();
+		        out.close();
+		    	System.out.println(out);
+		    }
+		} catch (IOException e) {
+		    e.printStackTrace();
+		}
+		String data = out.toString();
+		return data;
+	}
+	
 }
