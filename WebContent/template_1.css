@@ -40,7 +40,10 @@ img {
 	z-index: 9999;
 	cursor: pointer;
 }
-
+a{
+	text-decoration: none;
+	color:white;	
+}
 /******************************************************************************/
 @
 keyframes pop { 0% {
