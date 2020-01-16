@@ -10,7 +10,7 @@ public class SiteBean {
 	public String ile;
 	public String price1;
 	public String price2;
-	public int type;
+	public String type;
 	
 	public String getIle() {
 		return ile;
@@ -30,14 +30,14 @@ public class SiteBean {
 	public void setPrice2(String price2) {
 		this.price2 = price2;
 	}
-	public int getType() {
+	public String getType() {
 		return type;
 	}
-	public void setType(int type) {
+	// attention String !!!!!
+	public void setType(String type) {
 		this.type = type;
 	}
 	public String direct() {
-		return "Success";
+		return "success";
 	}
-
 }

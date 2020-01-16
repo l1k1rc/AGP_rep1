@@ -30,12 +30,7 @@ public class SiteResultBean {
 	public void setSiteBean(SiteBean siteBean) {
 		this.siteBean = siteBean;
 	}
-	/*public List<Site> getSites() {
-		return sites;
-	}
-	//public void setSites(List<Site> sites) {
-		//this.sites = sites;
-	//}*/
+
 	public String getIslandName() {
 		return islandName;
 	}
@@ -43,10 +38,10 @@ public class SiteResultBean {
 		this.islandName = islandName;
 	}
 	
+	// attention type string 
 	public List<Site> getSites() {
 		sites = MockCore.getSiteFound(siteBean.getIle(), siteBean.getPrice1(), siteBean.getPrice2(), siteBean.getType());
 		return sites;
 	}
 
-	
 }
