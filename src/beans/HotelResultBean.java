@@ -14,7 +14,7 @@ import core.MockCore;
 public class HotelResultBean {
 	@ManagedProperty(value = "#{hotelBean}")
 	private HotelBean hotelBean;
-	private List<Hotel> hotels = MockCore.getHotelFound();
+	private List<Hotel> hotels;
 	private String islandName;
 	
 	public HotelResultBean() {
@@ -39,7 +39,7 @@ public class HotelResultBean {
 	}
 
 	public List<Hotel> getHotels() {
-		System.out.println(hotels);
+		hotels = MockCore.getHotelFound(hotelBean.getIle(), hotelBean.getPrice1(), hotelBean.getPrice2(),hotelBean.getRange());
 		return hotels;
 	}
 
