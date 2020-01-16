@@ -5,13 +5,13 @@ public class Location {
 	private String name;
 	private int price;
 	private Point position;
-	private String island;
+	private int island;
 	private String type;
 	private String access;
 	
 	public Location() {}
 	
-	public Location(int id, String name, int price, Point position, String island, String type, String access) {
+	public Location(int id, String name, int price, Point position, int island, String type, String access) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -22,7 +22,7 @@ public class Location {
 		this.access = access;
 	}
 
-	public Location(int id, String name, int price, int x, int y, String island, String type, String access) {
+	public Location(int id, String name, int price, int x, int y, int island, String type, String access) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -65,11 +65,11 @@ public class Location {
 		this.position = position;
 	}
 
-	public String getIsland() {
+	public int getIsland() {
 		return island;
 	}
 
-	public void setIsland(String island) {
+	public void setIsland(int island) {
 		this.island = island;
 	}
 

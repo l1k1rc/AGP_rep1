@@ -9,13 +9,13 @@ public class Hotel extends Location {
 		super();
 	}
 	
-	public Hotel(int id, String name, int price, int x, int y, String island, String beach, boolean entertainment, int stars) {
+	public Hotel(int id, String name, int price, int x, int y, int island, String beach, boolean entertainment, int stars) {
 		super(id, name, price, x, y, island, "hotel", "bus");
 		this.beach = beach;
 		this.entertainment = entertainment;
 		this.stars = stars;
 	}
-	public Hotel(int id, String name, int price, Point position, String island, String beach, boolean entertainment, int stars) {
+	public Hotel(int id, String name, int price, Point position, int island, String beach, boolean entertainment, int stars) {
 		super(id, name, price, position, island, "hotel", "bus");
 		this.beach = beach;
 		this.entertainment = entertainment;
