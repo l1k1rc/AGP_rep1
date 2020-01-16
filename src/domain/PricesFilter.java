@@ -73,7 +73,7 @@ public class PricesFilter {
 		return 0;
 	}*/
 	
-	private static ArrayList<Excursion> excursions_Listener(int minimal_price, int maximal_price, ArrayList<Site> sites, Hotel hotel){		
+	public static ArrayList<Excursion> excursions_Listener(int minimal_price, int maximal_price, ArrayList<Site> sites, Hotel hotel){		
 		ArrayList<Location> begining = new ArrayList<Location>();
 		begining.add(hotel);
 		
