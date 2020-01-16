@@ -1,3 +1,5 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -5,15 +7,36 @@
 
 <h:head>
 	<title>JSF Demonstration</title>
-	<link rel="stylesheet" type="text/css" href="template_3.css" />
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="template_2.css" />
+	<script>
+		$(document).ready(function() {
+			$("img").click(function() {
+				if (!$(".overlay").hasClass('active')) {
+					$(".overlay").fadeIn().toggleClass('active');
+				} else {
+					$(".overlay").fadeOut().removeClass('active');
+				}
+			});
+		});
+	</script>
 </h:head>
 
 <h:body>
-	<ul class="cb-slideshow">
-		<li><span>Image 01</span></li>
-		<li><span>Image 2</span></li>
-		<li><span>Image 3</span></li>
-	</ul>
+	<!-- <h:outputScript library="js" name="common.js" /> -->
 
+	<img src="http://cdn.flaticon.com/png/256/60510.png" alt="" />
+	<div class="overlay">
+		<div class="text">
+			<ul class="groupLink">
+				<li class="glink">NEM</li>
+				<li class="glink">EXTRA NEEEEEEEEEEEEEM</li>
+				<li class="glink">NEM</li>
+			</ul>
+		</div>
+	</div>
+	
 </h:body>
 </html>
+
