@@ -29,6 +29,22 @@ public class Excursion {
 		super();
 		this.id = id;
 		this.excursionFee = StaticData.excursion_fee;
+		this.locationsPrice = locationsPrice;
+		this.transportsPrice = transportsPrice;
+		this.totalPrice = totalPrice;
+		if(locations == null) 	this.locations = new ArrayList<Location>();
+		else this.locations = locations;
+		
+		if(transports == null) this.transports = new ArrayList<Transport>();
+		else this.transports = transports;
+
+	}
+
+	public Excursion(int id, int excursionFee, ArrayList<Location> locations, int locationsPrice,
+			ArrayList<Transport> transports, int transportsPrice, int totalPrice) {
+		super();
+		this.id = id;
+		this.excursionFee = excursionFee;
 		this.locations = locations;
 		this.locationsPrice = locationsPrice;
 		this.transports = transports;
@@ -48,7 +64,9 @@ public class Excursion {
 	}
 	
 	public void addTransport(Transport newTransport) {
-		transports.add(newTransport);
+		//System.out.println("Ajout du transport dans Excursion.java : " + newTransport + " : " + newTransport.getType());
+
+		this.transports.add(newTransport);
 	}
 	
 	public void transportsPriceRecalculator() {
@@ -127,5 +145,13 @@ public class Excursion {
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+
+	@Override
+	public String toString() {
+		return "Excursion [locations=" + locations + ", transports=" + transports + "]";
+	}
+	
+	
+	
 
 }
