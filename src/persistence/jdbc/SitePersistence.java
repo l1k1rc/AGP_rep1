@@ -11,7 +11,7 @@ import core.Site;
 
 public class SitePersistence {
 
-		private static Site searchSiteById(int id) {
+		public static Site searchSiteById(int id) {
 			Point p = new Point();
 			Site searchSite = new Site();
 			try {
@@ -25,7 +25,9 @@ public class SitePersistence {
 					searchSite.setId(result.getInt("id"));
 					searchSite.setName(result.getString("name"));
 					searchSite.setPrice(result.getInt("price"));
-					searchSite.setType(result.getString("hist_act"));
+					if (Integer.parseInt(result.getString("hist_act")) == 1) searchSite.setHist_act(true);
+					else searchSite.setHist_act(false);
+					
 
 					p.setX(result.getInt("position_x"));
 					p.setY(result.getInt("position_y"));
@@ -43,7 +45,7 @@ public class SitePersistence {
 		}
 		
 		
-		private static ArrayList<Site> searchSiteByName(String name) {
+		public static ArrayList<Site> searchSiteByName(String name) {
 			ArrayList<Site> dataSite = new ArrayList<Site>();
 			try {
 				String selectSiteQuery = "SELECT * FROM site AS a WHERE a.name = ? ";
@@ -75,7 +77,7 @@ public class SitePersistence {
 			}
 			return dataSite;
 		}
-		private static ArrayList<Site> searchSiteByType(String type) {
+		public static ArrayList<Site> searchSiteByType(String type) {
 			ArrayList<Site> dataSite = new ArrayList<Site>();
 			try {
 				String selectSiteQuery = "SELECT * FROM site AS a WHERE a.hist_act = ? ";

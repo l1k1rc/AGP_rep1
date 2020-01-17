@@ -43,7 +43,7 @@ public class MockCore {
 		ArrayList<String> resultMixQuery = new ArrayList<String>();
 		FacadeAPI facadeAPI = new MixOperator();
 
-		tripFound = tripBuilder.tripBuilderAgent(null, null, 0, 0, null);
+		tripFound = tripBuilder.tripBuilderAgent(null, null, "", "", "", "");
 
 		if (excursion.contains("2"))
 			resultMixQuery = facadeAPI.queryAPI("SELECT * FROM site with " + keyword);
