@@ -12,10 +12,10 @@ public class tripBuilderTest {
 		hotelsID.add("1"); hotelsID.add("2"); hotelsID.add("3");
 		
 		String price_min = "50";
-		String price_max = "80";
+		String price_max = "1000";
 		
-		String comfort = "non";
-		String typeSite = "1";
+		String comfort = "sportif";
+		String typeSite = "0";
 		
 		tripBuilder.tripBuilderAgent(sitesID, hotelsID, price_min, price_max, comfort, typeSite);
 
