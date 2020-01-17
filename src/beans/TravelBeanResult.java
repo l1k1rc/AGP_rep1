@@ -20,8 +20,10 @@ public class TravelBeanResult {
 		// On ne peut pas appelr le bean dans le constructuer -> error 500
 	}
 
-	public List<Trip> getTrips(){
-		trips = MockCore.getTripFound(travelBean.getKeyword(), travelBean.getExcursion());
+	public List<Trip> getTrips() {
+		trips = MockCore.getTripFound(travelBean.getKeyword(), travelBean.getExcursion(), travelBean.getPrice1(),
+				travelBean.getPrice2(), travelBean.getComfort());
+		System.out.println(trips);
 		return trips;
 	}
 
@@ -36,5 +38,5 @@ public class TravelBeanResult {
 	public void setTrips(List<Trip> trips) {
 		this.trips = trips;
 	}
-	
+
 }

@@ -17,7 +17,7 @@ public class MockCore {
 
 	private static List<Hotel> hotelFound = new ArrayList<Hotel>();
 	private static List<Site> siteFound = new ArrayList<Site>();
-	private static List<Trip> tripFound = new ArrayList<Trip>();
+	private static ArrayList<Trip> tripFound = new ArrayList<Trip>();
 
 	public static List<Hotel> getHotelFound(String island, String price1, String price2, String stars) {
 		// System.out.println("Get hotel found by request : " + island + price1 + price2
@@ -44,18 +44,25 @@ public class MockCore {
 		return siteFound;
 	}
 
-	public static List<Trip> getTripFound(String keyword, String excursion) {
+	public static List<Trip> getTripFound(String keyword, String excursion, String price1, String price2,
+			String comfort) {
 		ArrayList<String> resultMixQuery = new ArrayList<String>();
 		FacadeAPI facadeAPI = new MixOperator();
 
-		tripFound = tripBuilder.tripBuilderAgent(null, null, "", "", "", "");
+		// tripFound = tripBuilder.tripBuilderAgent(null, null, "", "", "", "");
+		System.out.println("Prix 1 : "+price1+" Prix 2 : "+price2+" confort : "+comfort+" Excursion : "+excursion+"Keyword = "+keyword);
+		System.out.println(
+				"GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG" + facadeAPI.queryAPI("SELECT * FROM site with " + keyword));
+		System.out
+				.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG" + HotelPersistence.operatorSQL("SELECT * FROM hotel"));
+		// if (excursion.contains("2"))
+		tripFound = tripBuilder.tripBuilderAgent(facadeAPI.queryAPI("SELECT * FROM site with " + keyword),
+				HotelPersistence.operatorSQL("SELECT * FROM hotel"), price1, price2, comfort, excursion);
+		// else
+		// resultMixQuery = facadeAPI.queryAPI("SELECT * FROM site WHERE hist_act=" +
+		// excursion + " with " + keyword);
+		System.out.println("Get trips found by request : " + tripFound);
 
-		if (excursion.contains("2"))
-			resultMixQuery = facadeAPI.queryAPI("SELECT * FROM site with " + keyword);
-		else
-			resultMixQuery = facadeAPI.queryAPI("SELECT * FROM site WHERE hist_act=" + excursion + " with " + keyword);
-		// System.out.println("Get trips found by request : " + tripFound);
-		System.out.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG" + resultMixQuery);
 		return tripFound;
 	}
 
