@@ -14,17 +14,17 @@ import core.Trip;
 
 public class PricesFilter {
 	
-	private static boolean site_redudancy(Location siteToCompare, Excursion excursion) {
+	public static boolean site_redudancy(Location siteToCompare, Excursion excursion) {
 		boolean redondancy = false;
 
 		for(Location site: excursion.getLocations()) {
-			if(site.getId() == siteToCompare.getId()) redondancy = true;
+			if(site == siteToCompare) redondancy = true;
 		}
 		
 		return redondancy;
 	}
 	
-	private static Transport transport_type(Location A, Location B) {
+	public static Transport transport_type(Location A, Location B) {
 		if((B.getAccess() == "boat") || (A.getIsland() != B.getIsland())) {
 			Boat transport = new Boat();
 			return transport;
@@ -35,7 +35,7 @@ public class PricesFilter {
 	}
 	
 	
-	private static Excursion excursion_price(Excursion excursion) {
+	public static Excursion excursion_price(Excursion excursion) {
 		int distance;
 		int pos = 0;
 		Transport transportAtoB;
@@ -71,7 +71,8 @@ public class PricesFilter {
 	
 	
 	@SuppressWarnings("unchecked")
-	public static ArrayList<Excursion> excursions_Listener(int minimal_price, int maximal_price, ArrayList<Site> sites, Hotel hotel){		 
+	public static ArrayList<Excursion> excursions_Listener(int minimal_price, int maximal_price, ArrayList<Site> sites, Hotel hotel){		
+		int id = 0;
 		//Init of first itération (the hotel)
 		ArrayList<Location> begining = new ArrayList<Location>();
 		begining.add(hotel);
@@ -88,8 +89,9 @@ public class PricesFilter {
 		while (stopCounter != 1) {		
 	
 			for(Site site: sites) {
+				id++;
 				//New excursion
-				Excursion pointerExcursion = new Excursion(tempExcursions.get(pointer).getId(), tempExcursions.get(pointer).getExcursionFee(), 
+				Excursion pointerExcursion = new Excursion(id, tempExcursions.get(pointer).getExcursionFee(), 
 						(ArrayList<Location>) tempExcursions.get(pointer).getLocations().clone(),
 						tempExcursions.get(pointer).getLocationsPrice(), (ArrayList<Transport>) tempExcursions.get(pointer).getTransports().clone(),
 						tempExcursions.get(pointer).getTransportsPrice(), tempExcursions.get(pointer).getTotalPrice());
@@ -109,7 +111,7 @@ public class PricesFilter {
 					pointerExcursion.addLocation(site);
 					pointerExcursion = excursion_price(pointerExcursion);
 					
-					if(pointerExcursion.getTotalPrice() <= maximal_price) {
+					if((pointerExcursion.getTotalPrice() <= maximal_price) && (pointerExcursion.getLocations().size() <= core.StaticData.hard_site_limit)) {
 						tempExcursions.add(pointerExcursion);
 					}
 				}
@@ -128,6 +130,8 @@ public class PricesFilter {
 			}
 		}
 		
+		//Delete first excursion; it's a hotel only excursion
+		tempExcursions.remove(0);
 		return finalExcursions;
 	}
 			

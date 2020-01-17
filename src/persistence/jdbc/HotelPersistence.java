@@ -40,7 +40,8 @@ public class HotelPersistence {
 		}
 		return hotelList;
 	}
-	private static Hotel searchHotelById(int id) {
+	
+	public static Hotel searchHotelById(int id) {
 		Hotel hotel = new Hotel();
 		try {
 			String selectHotelQuery = "SELECT * FROM hotel AS a WHERE a.id = ? ";
@@ -77,7 +78,7 @@ public class HotelPersistence {
 	 */
 	
 	@SuppressWarnings("unused")
-	private static ArrayList<Hotel> searchByStar(int star) {
+	public static ArrayList<Hotel> searchByStar(int star) {
 		ArrayList<Hotel> hotelList = new ArrayList<Hotel>();
 		try {
 
@@ -116,7 +117,7 @@ public class HotelPersistence {
 	}
 	
 	@SuppressWarnings("unused")
-	private static ArrayList<Hotel> searchByEntertainment(int enter) {
+	public static ArrayList<Hotel> searchByEntertainment(int enter) {
 		ArrayList<Hotel> hotelList = new ArrayList<Hotel>();					;
 		try {
 
@@ -157,7 +158,7 @@ public class HotelPersistence {
 
 	
 	
-	private static ArrayList<Hotel> allHotels() {
+	public static ArrayList<Hotel> allHotels() {
 		ArrayList<Hotel> hotelList = new ArrayList<Hotel>();
 		try {
 			String selectHotelQuery = "SELECT * FROM hotel ";
@@ -214,7 +215,7 @@ public class HotelPersistence {
 		
 	}
 	
-	private ArrayList<Hotel> searchByPrice(int price) {
+	public ArrayList<Hotel> searchByPrice(int price) {
 		ArrayList<Hotel> priceResult = new ArrayList<Hotel>();
 		try {
 			String selectExcursionQuery = "SELECT * FROM hotel WHERE price < ?";
@@ -246,7 +247,7 @@ public class HotelPersistence {
 		return priceResult;
 	}
 	
-	private static ArrayList<Hotel> searchByIsland(String name) {
+	public static ArrayList<Hotel> searchByIsland(String name) {
 		ArrayList<Hotel> dataHotel = new ArrayList<Hotel>();
 		try {
 			String selectSiteQuery = "SELECT * FROM hotel AS a WHERE a.island_id = (SELECT id FROM island WHERE name=?) ";
@@ -291,7 +292,7 @@ public class HotelPersistence {
 	
 
 @SuppressWarnings("unused")
-private static Hotel searchHotelByname(String id) {
+public static Hotel searchHotelByname(String id) {
 	Hotel hotel = new Hotel();
 	try {
 		String selectHotelQuery = "SELECT * FROM hotel AS a WHERE a.name = ? ";
