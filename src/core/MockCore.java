@@ -23,8 +23,8 @@ public class MockCore {
 		// System.out.println("Get hotel found by request : " + island + price1 + price2
 		// + stars);
 		if (island.contains("0"))
-			hotelFound = HotelPersistence.operatorSQL("SELECT * FROM hotel WHERE price>=" + price1 + " AND price<="
-					+ price2 + " AND quality=" + stars);
+			hotelFound = HotelPersistence.operatorSQL(
+					"SELECT * FROM hotel WHERE price>=" + price1 + " AND price<=" + price2 + " AND quality=" + stars);
 		else
 			hotelFound = HotelPersistence.operatorSQL("SELECT * FROM hotel WHERE price>=" + price1 + " AND price<="
 					+ price2 + " AND quality=" + stars + " AND island_id=" + island);
@@ -33,9 +33,14 @@ public class MockCore {
 
 	// attention activity String !!
 	public static List<Site> getSiteFound(String island, String price1, String price2, String activity) {
-		System.out.println("Get site found by request : " + island + price1 + price2 + activity);
-		siteFound = SitePersistence.querySQL("SELECT * FROM site WHERE price>=" + price1 + " AND price<=" + price2
-				+ " AND hist_act=" + activity + " AND island_id=" + island);
+		// System.out.println("Get site found by request : " + island + price1 + price2
+		// + activity);
+		if (island.contains("0"))
+			siteFound = SitePersistence.querySQL("SELECT * FROM site WHERE price>=" + price1 + " AND price<=" + price2
+					+ " AND hist_act=" + activity);
+		else
+			siteFound = SitePersistence.querySQL("SELECT * FROM site WHERE price>=" + price1 + " AND price<=" + price2
+					+ " AND hist_act=" + activity + " AND island_id=" + island);
 		return siteFound;
 	}
 
