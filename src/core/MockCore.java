@@ -56,8 +56,15 @@ public class MockCore {
 		System.out
 				.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG" + HotelPersistence.operatorSQL("SELECT * FROM hotel"));
 		// if (excursion.contains("2"))
+		ArrayList<String> hotelID = new ArrayList<String>();
+		ArrayList<Hotel> hotelsALL = new ArrayList<Hotel>();
+		hotelsALL = HotelPersistence.operatorSQL("SELECT * FROM hotel");
+		for(Hotel h : hotelsALL) {
+			hotelID.add(String.valueOf(h.getId()));
+		}
+		System.err.println("\nHOOOOOOOOOOOOOOOOO"+hotelID);
 		tripFound = tripBuilder.tripBuilderAgent(facadeAPI.queryAPI("SELECT * FROM site with " + keyword),
-				HotelPersistence.operatorSQL("SELECT * FROM hotel"), price1, price2, comfort, excursion);
+				hotelID, "0", "5000", "sportif", "7");
 		// else
 		// resultMixQuery = facadeAPI.queryAPI("SELECT * FROM site WHERE hist_act=" +
 		// excursion + " with " + keyword);

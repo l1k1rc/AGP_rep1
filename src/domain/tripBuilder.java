@@ -117,7 +117,7 @@ public class tripBuilder {
 			else excursionsBySiteType.addAll(ComfortExcursionBuilder.comfortExcursionBuilderAgent(sites, hotel, comfort));
 		}
 		
-		System.out.println("By price : " + excursionsByPrice);
+	/*	System.out.println("By price : " + excursionsByPrice);
 		System.out.println("Iterrations : " + excursionsByPrice.size());
 
 		System.out.println("YOOO prix: " + excursionsByPrice.get(1).getId());
@@ -127,7 +127,7 @@ public class tripBuilder {
 		System.out.println("By type : " + excursionsBySiteType);
 		System.out.println("Iterrations : " + excursionsBySiteType.size());
 
-
+*/
 
 		//fusion between price and comfort
 		ArrayList<Excursion> interExcursions = new ArrayList<Excursion>();
@@ -151,14 +151,14 @@ public class tripBuilder {
 			}
 		}
 		
-		System.out.println("All : " + finalExcursions);
+		/*System.out.println("All : " + finalExcursions);
 		System.out.println("Iterrations : " + finalExcursions.size());
-
+*/
 		for(Hotel hotel: hotels) {
 			trips.addAll(tripCreator(finalExcursions, hotel, comfort));
 		}
 		
-		
+		System.err.println("dzaiodzefoezfzezeze"+trips);
 		return trips;
 	}
 
