@@ -52,7 +52,9 @@ a{
 	color:white;
 }
 /******************************************************************************/
-
+.text{
+	z-index: 999;
+}
 /*Take the primeface CSS to be modified and remove the bad parameters*/
 html,.ui-widget-content{
 		width:100%;

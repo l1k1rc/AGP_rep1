@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>JSF Demonstration</title>
-	<link rel="stylesheet" type="text/css" href="template_2.css" />
+	<link rel="stylesheet" type="text/css" href="template_3.css" />
 	<h:outputScript library="js" name="common.js" />
 </h:head>
 <h:body>
@@ -24,28 +24,47 @@
 	<h:form>
 		<!-- On utilise 	<h:outputText value="#{studentBean.currentStudentName}"/> -->
 		<p:dataList value="#{travelBeanResult.trips}" var="trip"
-			type="ordered" id="background">
+			type="ordered">
 			<!-- METTRE LA VAR !!! -->
 			<div class="card" id="bright">
 				<div class="info_section">
 					<div class="header_travel">
 						<h1>#{trip.hotel.name}</h1>
-						<h4>Hôtel TEST étoiles</h4>
-						<span class="price">TEST</span>
+						<h4>Avec hôtel #{trip.hotel.stars} étoiles.</h4>
+						<span class="price">Pour #{trip.price}.00$</span>
 						<p class="type">
-							Plage :
-							<h:outputText value="TEST" />
+							Proche de la plage :
+							<h:outputText value="#{trip.hotel.beach}" />
 						</p>
 					</div>
 					<div class="movie_desc">
-						<p class="text">TEST</p>
+						<p class="text">
+							<p:dataList value="#{trip.excursions}" var="excursion"
+								type="ordered">
+								<p:dataList value="#{excursion.locations}" var="location"
+									type="ordered">
+									#{location.name} pour #{location.price}.00$
+								</p:dataList>
+								<p:dataList value="#{excursion.transports}" var="transport" type="ordered">
+									#{transport.type} pour #{transport.price}.00$
+								</p:dataList>
+							</p:dataList>
+						</p>
 					</div>
 				</div>
 				<div class="blur_back bright_back"></div>
 			</div>
 		</p:dataList>
 	</h:form>
-
+	<!-- 
+<p:dataList value="#{trip.excursions}" var="excursion"
+								type="ordered" id="background">
+								<p:dataList value="#{excursion.locations}" var="location"
+									type="ordered" id="background">
+									#{location.name}
+								</p:dataList>
+							</p:dataList>
+ -->
 
 </h:body>
 </html>
