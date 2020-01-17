@@ -16,8 +16,8 @@ public class LuceneTester {
 
 	// Passer par le web content !!! A
 	// CORRIGER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	static String indexDir ="/home/raphael/Documents/AGP/index";// System.getProperty("user.dir") + "/WebContent/resources/index";
-	String dataDir ="/home/raphael/Documents/AGP/AGP";// System.getProperty("user.dir") + "/WebContent/resources/AGP";
+	static String indexDir ="/home/l1k1/Bureau/index";// System.getProperty("user.dir") + "/WebContent/resources/index";
+	String dataDir ="home/l1k1/Bureau/AGP";// System.getProperty("user.dir") + "/WebContent/resources/AGP";
 	Indexer indexer;
 	Searcher searcher;
 	private static ArrayList<String> indexFile;
