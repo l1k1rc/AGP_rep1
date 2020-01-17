@@ -26,8 +26,9 @@ public class Trip {
 		super();
 		this.id = id;
 		this.hotel = hotel;
+		if(excursions == null) 	this.excursions = new ArrayList<Excursion>();
+		else this.excursions = excursions;
 		this.duration = StaticData.trip_duration;
-		this.excursions = excursions;
 		this.price = price;
 	}
 
