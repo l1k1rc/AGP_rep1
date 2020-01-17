@@ -22,6 +22,15 @@ public class Excursion {
 
 	public Excursion(int id, ArrayList<Location> sites, ArrayList<Transport> transports) {
 		this(id, sites, 0, transports, 0, 0);
+<<<<<<< HEAD
+	}
+	
+	public Excursion(int id, ArrayList<Location> locations, int locationsPrice,
+			ArrayList<Transport> transports, int transportsPrice, int totalPrice) {
+		super();
+		this.id = id;
+		this.excursionFee = StaticData.excursion_fee;
+=======
 	}
 	
 	public Excursion(int id, ArrayList<Location> locations, int locationsPrice,
@@ -45,6 +54,7 @@ public class Excursion {
 		super();
 		this.id = id;
 		this.excursionFee = excursionFee;
+>>>>>>> 997cd47e8694a80fa07b3e26d6d1ca70d9c620b5
 		this.locations = locations;
 		this.locationsPrice = locationsPrice;
 		this.transports = transports;
@@ -64,6 +74,9 @@ public class Excursion {
 	}
 	
 	public void addTransport(Transport newTransport) {
+<<<<<<< HEAD
+		transports.add(newTransport);
+=======
 		//System.out.println("Ajout du transport dans Excursion.java : " + newTransport + " : " + newTransport.getType());
 
 		this.transports.add(newTransport);
@@ -71,6 +84,7 @@ public class Excursion {
 	
 	public void resetTransport() {
 		this.transports = new ArrayList<Transport>();
+>>>>>>> 997cd47e8694a80fa07b3e26d6d1ca70d9c620b5
 	}
 	
 	public void transportsPriceRecalculator() {
@@ -104,6 +118,7 @@ public class Excursion {
 
 	public int getExcursionFee() {
 		return excursionFee;
+<<<<<<< HEAD
 	}
 
 	public void setExcursionFee(int excursionFee) {
@@ -122,6 +137,26 @@ public class Excursion {
 		return locationsPrice;
 	}
 
+=======
+	}
+
+	public void setExcursionFee(int excursionFee) {
+		this.excursionFee = excursionFee;
+	}
+
+	public ArrayList<Location> getLocations() {
+		return locations;
+	}
+
+	public void setLocations(ArrayList<Location> locations) {
+		this.locations = locations;
+	}
+
+	public int getLocationsPrice() {
+		return locationsPrice;
+	}
+
+>>>>>>> 997cd47e8694a80fa07b3e26d6d1ca70d9c620b5
 	public void setLocationsPrice(int locationsPrice) {
 		this.locationsPrice = locationsPrice;
 	}
@@ -150,6 +185,8 @@ public class Excursion {
 		this.totalPrice = totalPrice;
 	}
 
+<<<<<<< HEAD
+=======
 	@Override
 	public String toString() {
 		return "Excursion [locations=" + locations.toString() + ", transports=" + transports.toString() + "]";
@@ -158,4 +195,5 @@ public class Excursion {
 	
 	
 
+>>>>>>> 997cd47e8694a80fa07b3e26d6d1ca70d9c620b5
 }
