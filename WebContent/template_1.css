@@ -5,6 +5,53 @@
 	0% {opacity:0;}
 	100% {opacity:1;}
 }
+/***************************ADD MENU***************************************************/
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
+
+.overlay {
+  z-index:999;
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #34495e;
+}
+
+.groupLink {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.groupLink .glink {
+  list-style-type: none;
+  margin: 20px 0;
+  font-size: 26px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.groupLink .glink:hover {
+  transform: translateX(-10px);
+}
+
+img {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  z-index: 9999;
+  cursor: pointer;
+}
+a{
+	text-decoration: none;
+	color:white;
+}
+/******************************************************************************/
+
 /*____________________________________________________________________________________________________________________________________________________*/
 
 /*____________________________________________________________________________________________________________________________________________________*/

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>JSF Demonstration</title>
+	<link rel="stylesheet" type="text/css" href="template_2.css" />
+	<h:outputScript library="js" name="common.js" />
+</h:head>
+<h:body>
+	<!-- Menu part -->
+	<img src="http://cdn.flaticon.com/png/256/60510.png" alt="" />
+	<div class="overlay">
+		<div class="text">
+			<ul class="groupLink">
+				<li class="glink"><a href="index.jsf">Séjour</a></li>
+				<li class="glink"><a href="site.jsf">Site</a></li>
+				<li class="glink"><a href="hotels.jsf">Hôtels</a></li>
+			</ul>
+		</div>
+	</div>
+	<h:form>
+		<!-- On utilise 	<h:outputText value="#{studentBean.currentStudentName}"/> -->
+		<p:dataList value="#{siteResultBean.sites}" var="site" type="ordered"
+			id="background">
+			<!-- METTRE LA VAR !!! -->
+			<div class="card" id="bright">
+				<div class="info_section">
+					<div class="header_travel">
+						<h1>#{site.name}</h1>
+						<span class="price">#{site.price}.00$</span>
+					</div>
+					<div class="movie_desc">
+						<p class="text">#{site.getTextSite(site.id)}</p>
+					</div>
+				</div>
+				<div class="blur_back bright_back"></div>
+			</div>
+		</p:dataList>
+	</h:form>
+
+
+</h:body>
+</html>

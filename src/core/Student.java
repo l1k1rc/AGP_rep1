@@ -23,7 +23,6 @@ public class Student {
     }
 
     public void setName(String name) {
-    	LuceneTester luceneTester = new LuceneTester();
         this.name = name;
     }
 

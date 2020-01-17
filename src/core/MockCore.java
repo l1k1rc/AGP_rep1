@@ -1,83 +1,57 @@
 package core;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import domain.tripBuilder;
+import persistence.API.FacadeAPI;
+import persistence.API.MixOperator;
+import persistence.jdbc.HotelPersistence;
+import persistence.jdbc.SitePersistence;
 
 /**
  * A utility class for providing data simulation (act as a simple database).
  * 
  */
 public class MockCore {
-	private static final Map<String, String> userRegistry = new HashMap<String, String>();
-	static {
-		userRegistry.put("user1", "aaa");
-		userRegistry.put("user2", "bbb");
+
+	private static List<Hotel> hotelFound = new ArrayList<Hotel>();
+	private static List<Site> siteFound = new ArrayList<Site>();
+	private static List<Trip> tripFound = new ArrayList<Trip>();
+
+	public static List<Hotel> getHotelFound(String island, String price1, String price2, String stars) {
+		// System.out.println("Get hotel found by request : " + island + price1 + price2
+		// + stars);
+		if (island.contains("0"))
+			hotelFound = HotelPersistence.operatorSQL("SELECT * FROM hotel WHERE price>=" + price1 + " AND price<="
+					+ price2 + " AND quality=" + stars);
+		else
+			hotelFound = HotelPersistence.operatorSQL("SELECT * FROM hotel WHERE price>=" + price1 + " AND price<="
+					+ price2 + " AND quality=" + stars + " AND island_id=" + island);
+		return hotelFound;
 	}
 
-	private static final List<Course> coursesJean = new ArrayList<Course>();
-	static {
-		coursesJean.add(new Course("Java programming", 17));
-		coursesJean.add(new Course("C programming", 16));
+	// attention activity String !!
+	public static List<Site> getSiteFound(String island, String price1, String price2, String activity) {
+		System.out.println("Get site found by request : " + island + price1 + price2 + activity);
+		siteFound = SitePersistence.querySQL("SELECT * FROM site WHERE price>=" + price1 + " AND price<=" + price2
+				+ " AND hist_act=" + activity + " AND island_id=" + island);
+		return siteFound;
 	}
 
-	private static final List<Course> coursesLuc = new ArrayList<Course>();
-	static {
-		coursesLuc.add(new Course("Databases", 16));
-		coursesLuc.add(new Course("Artificial Intelligence", 15));
-		coursesLuc.add(new Course("Embedded System", 16));
-	}
+	public static List<Trip> getTripFound(String keyword, String excursion) {
+		ArrayList<String> resultMixQuery = new ArrayList<String>();
+		FacadeAPI facadeAPI = new MixOperator();
 
-	private static final List<Student> students = new ArrayList<Student>();
-	static {
-		Student chris = new Student();
-		chris.setName("Chris");
-		chris.setNumber(0000111);
-		chris.setCourses(coursesLuc);
-		students.add(chris);
-		Student jean = new Student();
-		jean.setName("Jean");
-		jean.setNumber(21111111);
-		jean.setCourses(coursesJean);
-		students.add(jean);
+		tripFound = tripBuilder.tripBuilderAgent(null, null, 0, 0, null);
 
-		Student luc = new Student();
-		luc.setName("Luc");
-		luc.setNumber(21111112);
-		luc.setCourses(coursesLuc);
-		students.add(luc);
-	}
-
-	public static boolean exist(String login) {
-		return userRegistry.containsKey(login);
-	}
-
-	public static boolean isValid(String login, String password) {
-		boolean result = false;
-		if (userRegistry.containsKey(login)) {
-			String expectedPassword = userRegistry.get(login);
-			if (expectedPassword.equals(password)) {
-				result = true;
-			}
-		}
-		return result;
-	}
-
-	public static Student getStudent() {
-		Student student = new Student();
-		student.setName("Jean");
-		student.setNumber(21111111);
-		student.setCourses(coursesJean);
-		Student student2 = new Student();
-		student2.setName("Patrik");
-		student2.setNumber(21111111);
-		student2.setCourses(coursesLuc);
-		return student;
-	}
-
-	public static List<Student> getAllStudents() {
-		return students;
+		if (excursion.contains("2"))
+			resultMixQuery = facadeAPI.queryAPI("SELECT * FROM site with " + keyword);
+		else
+			resultMixQuery = facadeAPI.queryAPI("SELECT * FROM site WHERE hist_act=" + excursion + " with " + keyword);
+		// System.out.println("Get trips found by request : " + tripFound);
+		System.out.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG" + resultMixQuery);
+		return tripFound;
 	}
 
 }

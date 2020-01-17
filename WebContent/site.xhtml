@@ -33,47 +33,41 @@
 			<fieldset>
 				<legend>Discover the Canary Islands</legend>
 			</fieldset>
-			<!-- Rechercher un mot clé -->
 			<div class="inner-form">
-				<div class="input-field first-wrap">
-					<h:inputText value="#{travelBean.keyword}" id="search"
-						a:placeholder="What are you looking for?" />
-				</div>
 				<div class="under-form">
 					<!-- Choisir le type d'excursion -->
 					<h:panelGrid columns="2">
-						<p:selectOneMenu value="#{travelBean.excursion}">
-							<f:selectItem itemLabel="Excursion historique"
-								itemValue="1" />
-							<f:selectItem itemLabel="Excursion de loisirs"
-								itemValue="0" />
-							<f:selectItem itemLabel="Les deux" itemValue="2" />
+						<p:selectOneMenu value="#{siteBean.ile}">
+							<f:selectItem itemLabel="Tenerife" itemValue="1" />
+							<f:selectItem itemLabel="Fuerteventura" itemValue="2" />
+							<f:selectItem itemLabel="La Gomera" itemValue="3" />
+							<f:selectItem itemLabel="El Hierro" itemValue="4" />
+							<f:selectItem itemLabel="La Palma" itemValue="5" />
 						</p:selectOneMenu>
 					</h:panelGrid>
 					<!-- Choix interval de prix -->
 					<h:panelGrid columns="1">
 						<h:outputText id="displayRange"
-							value="Between #{travelBean.price1} and #{travelBean.price2}"
+							value="Between #{siteBean.price1} and #{siteBean.price2}"
 							style="color:white;" />
-						<p:slider minValue="0" maxValue="10000" for="txt6,txt7"
-							display="displayRange" style="width: 500px" range="true"
-							displayTemplate="Between {min}$ and {max}$" />
+						<p:slider for="txt6,txt7" display="displayRange"
+							style="width: 500px" range="true"
+							displayTemplate="Between {min}0$ and {max}0$" />
 					</h:panelGrid>
-					<h:inputHidden id="txt6" value="#{travelBean.price1}" />
-					<h:inputHidden id="txt7" value="#{travelBean.price2}" />
-					<!-- Rechercher pour une date -->
+					<h:inputHidden id="txt6" value="#{siteBean.price1}" />
+					<h:inputHidden id="txt7" value="#{siteBean.price2}" />
+					<!-- Rechercher pour un type de site -->
 					<h:panelGrid columns="2">
-						<p:selectOneMenu value="#{travelBean.comfort}">
-							<f:selectItem itemLabel="Séjour sportif" itemValue="sportif" />
-							<f:selectItem itemLabel="Séjour confortable"
-								itemValue="confortable" />
+						<p:selectOneMenu value="#{siteBean.type}">
+							<f:selectItem itemLabel="Site historique " itemValue="1" />
+							<f:selectItem itemLabel="Activité" itemValue="0" />
 						</p:selectOneMenu>
 					</h:panelGrid>
 				</div>
 				<!-- Valide le filtrage pour passage à la page suivante -->
 				<div class="input-field third-wrap">
 					<h:commandButton value="Search" class="btn-search"
-						action="#{travelBean.direct}" />
+						action="#{siteBean.direct}" />
 				</div>
 			</div>
 		</h:form>

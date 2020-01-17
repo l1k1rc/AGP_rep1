@@ -5,10 +5,9 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import persistence.API.APIDatabase;
+import persistence.jdbc.Mixrequest;
 import persistence.API.MixOperator;
 import persistence.jdbc.Mixrequest;
 
@@ -16,12 +15,12 @@ class MixOperatorTest {
 	private ArrayList<String> mixOperatorTest = new ArrayList<String>();
 	private static String requestTest;
 	private static String requestTest1;
-	private static APIDatabase apiMix;
+	private static Mixrequest apiMix;
 
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		apiMix = new MixOperator();
+		apiMix = new Mixrequest();
 		requestTest = "SELECT * FROM site WHERE price=50 with plongée";
 		requestTest1 = "SELECT id FROM site WHERE price=50 with plongée";
 	}
@@ -29,7 +28,7 @@ class MixOperatorTest {
 	@Test
 	void test() {
 		//test
-		mixOperatorTest = apiMix.queryAPI(requestTest);
+		mixOperatorTest = apiMix.getIndexFileNumberForMixRequest(requestTest);
 		//Exp
 		String requestExp = "SELECT * FROM site WHERE price=50 with plongée";
 		Mixrequest mixrequestExp = new Mixrequest();
@@ -38,7 +37,7 @@ class MixOperatorTest {
 		assertEquals("Le résultat de la requête aurait dû être le même", mixOperatorTExp, mixOperatorTest);
 		
 		//test
-		mixOperatorTest = apiMix.queryAPI(requestTest1);
+		mixOperatorTest = apiMix.getIndexFileNumberForMixRequest(requestTest1);
 		//Exp
 		ArrayList<String> mixOperatorTExp1 = new ArrayList<String>();
 		//Comp
